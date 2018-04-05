@@ -570,6 +570,7 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_80"
         app:layout_constraintEnd_toStartOf="@+id/tv_name_23"
         app:layout_constraintStart_toStartOf="@+id/gl_h_47"
+        
         app:layout_constraintTop_toTopOf="@+id/gl_v_68" />
 
 
