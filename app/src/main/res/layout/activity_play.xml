@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFF00"
     android:orientation="horizontal"
     app:layout_constraintGuide_percent="0.7"
-    tools:context="com.example.hoang.demopj.PlayActivity"
-    android:background="#FFFF00">
+    tools:context="com.example.hoang.demopj.PlayActivity">
 
 
     <android.support.constraint.Guideline
@@ -152,13 +152,13 @@
         app:layout_constraintGuide_percent="0.83" />
 
     <TextView
-        android:text="Special"
-        android:textSize="10sp"
-        android:gravity="center"
         android:id="@+id/tv_12"
         android:layout_width="0dp"
-        android:background="#CC9966"
         android:layout_height="0dp"
+        android:background="#CC9966"
+        android:gravity="center"
+        android:text="Special"
+        android:textSize="10sp"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_12"
         app:layout_constraintStart_toStartOf="@+id/gl_h_03"
@@ -168,10 +168,10 @@
         android:id="@+id/tv_name_11"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#FB8C00"
         android:gravity="center"
         android:text="Hà Tĩnh\n 1400"
         android:textSize="8sp"
-        android:background="#FB8C00"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_32"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_10"
@@ -184,10 +184,10 @@
         android:id="@+id/tv_name_10"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#FB8C00"
         android:gravity="center"
         android:text="Thanh Hóa\n 1200"
         android:textSize="8sp"
-        android:background="#FB8C00"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_44"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_10"
@@ -198,13 +198,13 @@
         android:id="@+id/tv_name_09"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/colorChange"
         android:gravity="center"
         android:text="\?"
-        android:background="@color/colorChange"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_56"
-        app:layout_constraintEnd_toStartOf="@+id/textView43"
+        app:layout_constraintEnd_toStartOf="@+id/tv_mono"
         app:layout_constraintStart_toStartOf="@+id/gl_h_03"
         app:layout_constraintTop_toTopOf="@+id/gl_v_44" />
 
@@ -212,10 +212,10 @@
         android:id="@+id/tv_name_08"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#43A047"
         android:gravity="center"
         android:text="Nam Định\n 1000"
         android:textSize="8sp"
-        android:background="#43A047"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_68"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_10"
@@ -226,10 +226,10 @@
         android:id="@+id/tv_name_07"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#43A047"
         android:gravity="center"
         android:text="Thái Bình\n 900"
         android:textSize="8sp"
-        android:background="#43A047"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_80"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_10"
@@ -240,11 +240,11 @@
         android:id="@+id/tv_06"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#CC9966"
         android:gravity="center"
         android:text="Jail"
         android:textSize="10sp"
         android:textStyle="bold"
-        android:background="#CC9966"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_12"
         app:layout_constraintStart_toStartOf="@+id/gl_h_03"
@@ -254,10 +254,10 @@
         android:id="@+id/tv_name_05"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#FF1744"
         android:gravity="center"
         android:text="Hà Nội\n 3000"
         android:textSize="8sp"
-        android:background="#FF1744"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_19"
@@ -268,10 +268,10 @@
         android:id="@+id/tv_name_04"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#FF1744"
         android:gravity="center"
         android:text="Hải Phòng\n 1500"
         android:textSize="8sp"
-        android:background="#FF1744"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_26"
@@ -290,16 +290,16 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_33"
         app:layout_constraintStart_toEndOf="@+id/tv_name_04"
-        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_mono" />
 
     <TextView
         android:id="@+id/tv_name_02"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#2979FF"
         android:gravity="center"
         android:text="Hòa Bình\n 700"
         android:textSize="8sp"
-        android:background="#2979FF"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_40"
@@ -310,10 +310,10 @@
         android:id="@+id/tv_name_01"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#2979FF"
         android:gravity="center"
         android:text="Lào Cai\n 600"
         android:textSize="8sp"
-        android:background="#2979FF"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_47"
@@ -324,11 +324,11 @@
         android:id="@+id/tv_00"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#CC9966"
         android:gravity="center"
         android:text="START \n+3000$"
         android:textSize="10sp"
         android:textStyle="bold"
-        android:background="#CC9966"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
         app:layout_constraintStart_toEndOf="@+id/tv_name_01"
@@ -338,53 +338,55 @@
         android:id="@+id/tv_name_23"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#455A64"
         android:gravity="center"
         android:text="HCM\n3000"
         android:textSize="8sp"
-        android:background="#455A64"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_80"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
         app:layout_constraintStart_toStartOf="@+id/gl_h_49"
-        app:layout_constraintTop_toTopOf="@+id/gl_v_68" />
+        app:layout_constraintTop_toTopOf="@+id/gl_v_68"
+        android:layout_marginTop="1dp"/>
 
     <TextView
         android:id="@+id/tv_name_22"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#455A64"
         android:gravity="center"
         android:text="Cà Mau\n2000"
         android:textSize="8sp"
-        android:background="#455A64"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tv_name_23"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
         app:layout_constraintStart_toStartOf="@+id/gl_h_49"
-        app:layout_constraintTop_toTopOf="@+id/gl_v_56" />
+        app:layout_constraintTop_toTopOf="@+id/gl_v_56"
+        />
 
     <TextView
         android:id="@+id/tv_name_21"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/colorChange"
         android:gravity="center"
         android:text="\?"
-        android:background="@color/colorChange"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_56"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
-        app:layout_constraintStart_toEndOf="@+id/textView43"
+        app:layout_constraintStart_toEndOf="@+id/tv_mono"
         app:layout_constraintTop_toTopOf="@+id/gl_v_44" />
 
     <TextView
         android:id="@+id/tv_name_20"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#FF5722"
         android:gravity="center"
         android:text="Vũng Tàu\n1800"
         android:textSize="8sp"
         android:textStyle="bold"
-        android:background="#FF5722"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_44"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
         app:layout_constraintStart_toStartOf="@+id/gl_h_49"
@@ -394,10 +396,10 @@
         android:id="@+id/tv_name_19"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#FF5722"
         android:gravity="center"
         android:text="Biên Hòa\n1800"
         android:textSize="8sp"
-        android:background="#FF5722"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_32"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
@@ -408,10 +410,10 @@
         android:id="@+id/tv_18"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#CC9966"
         android:gravity="center"
         android:text="GO TO JAIL"
         android:textSize="10sp"
-        android:background="#CC9966"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
@@ -422,10 +424,10 @@
         android:id="@+id/tv_name_13"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#8D6E63"
         android:gravity="center"
         android:text="Huế\n1200"
         android:textSize="10sp"
-        android:background="#8D6E63"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_17"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_19"
@@ -436,10 +438,10 @@
         android:id="@+id/tv_name_14"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#8D6E63"
         android:gravity="center"
         android:text="Đà Nẵng\n1500"
         android:textSize="8sp"
-        android:background="#8D6E63"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_17"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_26"
@@ -450,12 +452,12 @@
         android:id="@+id/tv_name_15"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/colorChange"
         android:gravity="center"
         android:text="\?"
-        android:background="@color/colorChange"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView43"
+        app:layout_constraintBottom_toTopOf="@+id/tv_mono"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_33"
         app:layout_constraintStart_toStartOf="@+id/gl_h_26"
         app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
@@ -464,10 +466,10 @@
         android:id="@+id/tv_name_16"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#FFAB00"
         android:gravity="center"
         android:text="Kon Tum\n2200"
         android:textSize="8sp"
-        android:background="#FFAB00"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_17"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_40"
@@ -479,11 +481,11 @@
         android:id="@+id/tv_name_17"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#FFAB00"
         android:gravity="center"
         android:text="Đà Lạt\n2500"
         android:textSize="8sp"
         android:textStyle="bold"
-        android:background="#FFAB00"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_17"
         app:layout_constraintEnd_toStartOf="@+id/tv_18"
         app:layout_constraintStart_toEndOf="@+id/tv_name_16"
@@ -554,11 +556,11 @@
         android:id="@+id/tv_color_22"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/colorMark"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_68"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_49"
         app:layout_constraintStart_toStartOf="@+id/gl_h_47"
-        app:layout_constraintTop_toTopOf="@+id/gl_v_56"
-        android:background="@color/colorMark"/>
+        app:layout_constraintTop_toTopOf="@+id/gl_v_56" />
 
     <TextView
         android:id="@+id/tv_color_23"
@@ -568,7 +570,8 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_80"
         app:layout_constraintEnd_toStartOf="@+id/tv_name_23"
         app:layout_constraintStart_toStartOf="@+id/gl_h_47"
-        app:layout_constraintTop_toTopOf="@+id/gl_v_68" />
+        app:layout_constraintTop_toTopOf="@+id/gl_v_68"
+        android:layout_marginTop="1dp"/>
 
 
     <TextView
@@ -612,7 +615,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_20" />
 
     <TextView
-        android:id="@+id/textView43"
+        android:id="@+id/tv_mono"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
@@ -648,7 +651,6 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
 
 
-
     <TextView
         android:id="@+id/tv_color_01"
         android:layout_width="0dp"
@@ -668,6 +670,195 @@
         app:layout_constraintEnd_toStartOf="@+id/gl_h_40"
         app:layout_constraintStart_toStartOf="@+id/gl_h_33"
         app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_59"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.59" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_59"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/gl_v_44"
+        app:layout_constraintVertical_bias="1.0">
+
+    </LinearLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.29" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_44"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/gl_v_29">
+
+    </LinearLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_74"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.74" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_74"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/gl_v_59"></LinearLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_89"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.89"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_89"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/gl_v_74">
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_name_pl1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_44"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/gl_v_29"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <ImageView
+        android:id="@+id/iv_name_pl2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_59"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_44"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <ImageView
+        android:id="@+id/iv_name_pl3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_74"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout4"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_59"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <ImageView
+        android:id="@+id/iv_name_pl4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_89"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_74"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/tv_name_pl1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Player 1"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_44"
+        app:layout_constraintStart_toEndOf="@+id/iv_name_pl1"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_29" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="711dp"
+        tools:layout_editor_absoluteY="305dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="player 2"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_59"
+        app:layout_constraintStart_toEndOf="@+id/iv_name_pl2"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_44" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="725dp"
+        tools:layout_editor_absoluteY="369dp" />
 
 
 </android.support.constraint.ConstraintLayout>
