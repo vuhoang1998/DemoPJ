@@ -4,6 +4,670 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hoang.demopj.PlayActivity">
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.7"
+    tools:context="com.example.hoang.demopj.PlayActivity"
+    android:background="#FFFF00">
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.32" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.44" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_56"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.56" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_68"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.68" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_95"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.19" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.26" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_47"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.47" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_49"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.49" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_56"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.56" />
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.17" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_83"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.83" />
+
+    <TextView
+        android:text="Special"
+        android:textSize="10sp"
+        android:gravity="center"
+        android:id="@+id/tv_12"
+        android:layout_width="0dp"
+        android:background="#CC9966"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_12"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_03"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
+
+    <TextView
+        android:id="@+id/tv_name_11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Hà Tĩnh\n 1400"
+        android:textSize="8sp"
+        android:background="#FB8C00"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_32"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_10"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_03"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_20"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tv_name_10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Thanh Hóa\n 1200"
+        android:textSize="8sp"
+        android:background="#FB8C00"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_44"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_10"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_03"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_32" />
+
+    <TextView
+        android:id="@+id/tv_name_09"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="\?"
+        android:background="@color/colorChange"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_56"
+        app:layout_constraintEnd_toStartOf="@+id/textView43"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_03"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_44" />
+
+    <TextView
+        android:id="@+id/tv_name_08"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Nam Định\n 1000"
+        android:textSize="8sp"
+        android:background="#43A047"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_68"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_10"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_03"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_09" />
+
+    <TextView
+        android:id="@+id/tv_name_07"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Thái Bình\n 900"
+        android:textSize="8sp"
+        android:background="#43A047"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_80"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_10"
+        app:layout_constraintStart_toEndOf="@+id/gl_h_03"
+        app:layout_constraintTop_toBottomOf="@+id/gl_v_68" />
+
+    <TextView
+        android:id="@+id/tv_06"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Jail"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:background="#CC9966"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_12"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_03"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
+
+    <TextView
+        android:id="@+id/tv_name_05"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Hà Nội\n 3000"
+        android:textSize="8sp"
+        android:background="#FF1744"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_19"
+        app:layout_constraintStart_toEndOf="@+id/gl_h_12"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_83" />
+
+    <TextView
+        android:id="@+id/tv_name_04"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Hải Phòng\n 1500"
+        android:textSize="8sp"
+        android:background="#FF1744"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_26"
+        app:layout_constraintStart_toEndOf="@+id/tv_name_05"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_83" />
+
+    <TextView
+        android:id="@+id/tv_name_03"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorChange"
+        android:gravity="center"
+        android:text="\?"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_33"
+        app:layout_constraintStart_toEndOf="@+id/tv_name_04"
+        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+    <TextView
+        android:id="@+id/tv_name_02"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Hòa Bình\n 700"
+        android:textSize="8sp"
+        android:background="#2979FF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_40"
+        app:layout_constraintStart_toEndOf="@+id/tv_name_03"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_83" />
+
+    <TextView
+        android:id="@+id/tv_name_01"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Lào Cai\n 600"
+        android:textSize="8sp"
+        android:background="#2979FF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_47"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_40"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_83" />
+
+    <TextView
+        android:id="@+id/tv_00"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="START \n+3000$"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:background="#CC9966"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
+        app:layout_constraintStart_toEndOf="@+id/tv_name_01"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
+
+    <TextView
+        android:id="@+id/tv_name_23"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="HCM\n3000"
+        android:textSize="8sp"
+        android:background="#455A64"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_80"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_49"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_68" />
+
+    <TextView
+        android:id="@+id/tv_name_22"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Cà Mau\n2000"
+        android:textSize="8sp"
+        android:background="#455A64"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_name_23"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_49"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_56" />
+
+    <TextView
+        android:id="@+id/tv_name_21"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="\?"
+        android:background="@color/colorChange"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_56"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
+        app:layout_constraintStart_toEndOf="@+id/textView43"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_44" />
+
+    <TextView
+        android:id="@+id/tv_name_20"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Vũng Tàu\n1800"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        android:background="#FF5722"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_44"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_49"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_32" />
+
+    <TextView
+        android:id="@+id/tv_name_19"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Biên Hòa\n1800"
+        android:textSize="8sp"
+        android:background="#FF5722"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_32"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_49"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_20" />
+
+    <TextView
+        android:id="@+id/tv_18"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="GO TO JAIL"
+        android:textSize="10sp"
+        android:background="#CC9966"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_47"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
+
+    <TextView
+        android:id="@+id/tv_name_13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Huế\n1200"
+        android:textSize="10sp"
+        android:background="#8D6E63"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_17"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_19"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_12"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
+
+    <TextView
+        android:id="@+id/tv_name_14"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Đà Nẵng\n1500"
+        android:textSize="8sp"
+        android:background="#8D6E63"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_17"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_26"
+        app:layout_constraintStart_toEndOf="@+id/tv_name_13"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
+
+    <TextView
+        android:id="@+id/tv_name_15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="\?"
+        android:background="@color/colorChange"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView43"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_33"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_26"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
+
+    <TextView
+        android:id="@+id/tv_name_16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Kon Tum\n2200"
+        android:textSize="8sp"
+        android:background="#FFAB00"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_17"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_40"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_33"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
+
+    <TextView
+        android:id="@+id/tv_name_17"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Đà Lạt\n2500"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        android:background="#FFAB00"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_17"
+        app:layout_constraintEnd_toStartOf="@+id/tv_18"
+        app:layout_constraintStart_toEndOf="@+id/tv_name_16"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
+
+    <TextView
+        android:id="@+id/tv_color_13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMark"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_19"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_12"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_17" />
+
+    <TextView
+        android:id="@+id/tv_color_14"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMark"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_26"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_19"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_14" />
+
+    <TextView
+        android:id="@+id/tv_color_16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMark"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_40"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_33"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_16" />
+
+    <TextView
+        android:id="@+id/tv_color_17"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMark"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_47"
+        app:layout_constraintStart_toEndOf="@+id/tv_color_16"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_17" />
+
+    <TextView
+        android:id="@+id/tv_color_19"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMark"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_32"
+        app:layout_constraintEnd_toStartOf="@+id/tv_name_19"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_47"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_20" />
+
+    <TextView
+        android:id="@+id/tv_color_20"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMark"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_44"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_49"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_47"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_32" />
+
+    <TextView
+        android:id="@+id/tv_color_22"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_68"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_49"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_47"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_56"
+        android:background="@color/colorMark"/>
+
+    <TextView
+        android:id="@+id/tv_color_23"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMark"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_80"
+        app:layout_constraintEnd_toStartOf="@+id/tv_name_23"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_47"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_68" />
+
+
+    <TextView
+        android:id="@+id/tv_color_08"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMark"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_68"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_12"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_10"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_56" />
+
+    <TextView
+        android:id="@+id/tv_color_07"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMark"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_80"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_12"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_10"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_68" />
+
+    <TextView
+        android:id="@+id/tv_color_10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMark"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_44"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_12"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_10"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_32" />
+
+    <TextView
+        android:id="@+id/tv_color_11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMark"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_32"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_12"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_10"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_20" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:rotation="-45"
+        android:text="MONOPOLY"
+        android:textColor="@android:color/holo_red_light"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_80"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_47"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_color_10"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_20"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tv_color_05"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMark"
+        app:layout_constraintBottom_toTopOf="@+id/tv_name_05"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_19"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_12"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
+
+    <TextView
+        android:id="@+id/tv_color_04"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMark"
+        app:layout_constraintBottom_toTopOf="@+id/tv_name_04"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_26"
+        app:layout_constraintStart_toEndOf="@+id/tv_color_05"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
+
+
+
+    <TextView
+        android:id="@+id/tv_color_01"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMark"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_83"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_47"
+        app:layout_constraintStart_toEndOf="@+id/tv_color_02"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
+
+    <TextView
+        android:id="@+id/tv_color_02"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorMark"
+        app:layout_constraintBottom_toTopOf="@+id/tv_name_02"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_40"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_33"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
+
 
 </android.support.constraint.ConstraintLayout>
