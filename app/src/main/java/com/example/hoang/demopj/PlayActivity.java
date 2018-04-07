@@ -6,20 +6,22 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class PlayActivity extends AppCompatActivity {
-    static Random rd = new Random();
-    static Scanner sc = new Scanner(System.in);
-    static int [][]map = new int[24][3];
-    static int [][]player = new int[4][3];
+    Random rd = new Random();
+    Scanner sc = new Scanner(System.in);
+    int [][]map = new int[24][3];
+    int [][]player = new int[4][3];
 
-    static boolean endGame = false;
-    static int turn = 0;
-    static int dice;
-    static int choose;
+    boolean endGame = false;
+    int turn = 0;
+    int dice;
+    int choose;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
     }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -35,8 +37,50 @@ public class PlayActivity extends AppCompatActivity {
 //            }
 //        }
     }
+
+    public float getPosV(int p){
+        float v = 0.0f;
+        if(player[p][1]>=0&&player[p][1]<=6){
+            v = 0.83f;
+        } else if (player[p][1]>=12&&player[p][1]<=18){
+            v = 0.05f;
+        } else if (player[p][1]==7||player[p][1]==23){
+            v = 0.68f;
+        } else if (player[p][1]==8||player[p][1]==22){
+            v = 0.56f;
+        } else if (player[p][1]==9||player[p][1]==21){
+            v = 0.44f;
+        } else if (player[p][1]==10||player[p][1]==20){
+            v = 0.32f;
+        } else if (player[p][1]==11||player[p][1]==19){
+            v = 0.20f;
+        }
+        return v;
+    }
+    public float getPosH(int p){
+        float h = 0.0f;
+        if(player[p][1]>=6&&player[p][1]<=12){
+            h = 0.03f;
+        } else if (player[p][1]>=18&&player[p][1]<=23) {
+            h = 0.49f;
+        } else if (player[p][1]==0){
+            h = 0.49f;
+        } else if (player[p][1]==1||player[p][1]==17){
+            h = 0.40f;
+        } else if (player[p][1]==2||player[p][1]==16){
+            h = 0.33f;
+        } else if (player[p][1]==3||player[p][1]==15){
+            h = 0.26f;
+        } else if (player[p][1]==4||player[p][1]==14){
+            h = 0.19f;
+        } else if (player[p][1]==5||player[p][1]==13){
+            h = 0.12f;
+        }
+        return h;
+    }
+
     //create
-    public static void create(){
+    public void create(){
         for (int i = 0 ; i < 24 ; i++){
             map[i][0] = (rd.nextInt(5)+5)*100; // money
             map[i][1] = 0; // player occupy
@@ -49,7 +93,7 @@ public class PlayActivity extends AppCompatActivity {
         }
     }
     //draw
-    public static void draw(){
+    public void draw(){
         // draw money
         for (int i = 0 ; i < 24 ; i++) {
             if (i == 0||i == 12||i==6||i==18){
@@ -131,7 +175,7 @@ public class PlayActivity extends AppCompatActivity {
         System.out.println(" | Dice: "+dice);
     }
     //check death
-    static void checkDeath(){
+    void checkDeath(){
         int countDeath = 0;
         for (int i = 0 ; i <4 ; i++){
             if(player[i][2]==0){
@@ -148,7 +192,7 @@ public class PlayActivity extends AppCompatActivity {
         }
     }
     //logic
-    public static void play(){
+    public void play(){
         dice = 0;
         dice = rd.nextInt(6)+1;
         dice += rd.nextInt(6)+1;
@@ -159,7 +203,7 @@ public class PlayActivity extends AppCompatActivity {
         }
     }
 
-    public static void choosePlayer(){
+    public void choosePlayer(){
         if (player[turn][1]!=0&&player[turn][1]!=12&&player[turn][1]!=18&&player[turn][1]!=6){
             if (map[player[turn][1]][1]==0){
                 System.out.println("You choose: 1.Occupy  2.Ignore");
