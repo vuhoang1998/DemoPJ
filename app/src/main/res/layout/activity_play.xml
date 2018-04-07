@@ -165,7 +165,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
 
     <TextView
-        android:id="@+id/tv_name_11"
+        android:id="@+id/tv_house_08"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border04"
@@ -181,7 +181,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/tv_name_10"
+        android:id="@+id/tv_house_07"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border04"
@@ -209,7 +209,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_44" />
 
     <TextView
-        android:id="@+id/tv_name_08"
+        android:id="@+id/tv_house_6"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border03"
@@ -223,7 +223,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_name_09" />
 
     <TextView
-        android:id="@+id/tv_name_07"
+        android:id="@+id/tv_house_05"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border03"
@@ -251,7 +251,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
 
     <TextView
-        android:id="@+id/tv_name_05"
+        android:id="@+id/tv_house_04"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border02"
@@ -265,7 +265,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_83" />
 
     <TextView
-        android:id="@+id/tv_name_04"
+        android:id="@+id/tv_house_03"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border02"
@@ -275,7 +275,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_26"
-        app:layout_constraintStart_toEndOf="@+id/tv_name_05"
+        app:layout_constraintStart_toEndOf="@+id/tv_house_04"
         app:layout_constraintTop_toTopOf="@+id/gl_v_83" />
 
     <TextView
@@ -289,11 +289,11 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_33"
-        app:layout_constraintStart_toEndOf="@+id/tv_name_04"
+        app:layout_constraintStart_toEndOf="@+id/tv_house_03"
         app:layout_constraintTop_toBottomOf="@+id/tv_mono" />
 
     <TextView
-        android:id="@+id/tv_name_02"
+        android:id="@+id/tv_house_02"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border01"
@@ -307,7 +307,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_83" />
 
     <TextView
-        android:id="@+id/tv_name_01"
+        android:id="@+id/tv_house_01"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border01"
@@ -331,11 +331,11 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
-        app:layout_constraintStart_toEndOf="@+id/tv_name_01"
+        app:layout_constraintStart_toEndOf="@+id/tv_house_01"
         app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
 
     <TextView
-        android:id="@+id/tv_name_23"
+        android:id="@+id/tv_house_16"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border08"
@@ -349,16 +349,15 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_68" />
 
     <TextView
-        android:id="@+id/tv_name_22"
+        android:id="@+id/tv_house_15"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border08"
         android:gravity="center"
-        android:textColor="@"
         android:text="Cà Mau\n2000"
         android:textSize="8sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tv_name_23"
+        app:layout_constraintBottom_toTopOf="@+id/tv_house_16"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
         app:layout_constraintStart_toStartOf="@+id/gl_h_49"
         app:layout_constraintTop_toTopOf="@+id/gl_v_56" />
@@ -378,7 +377,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_44" />
 
     <TextView
-        android:id="@+id/tv_name_20"
+        android:id="@+id/tv_house_14"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border07"
@@ -392,7 +391,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_32" />
 
     <TextView
-        android:id="@+id/tv_name_19"
+        android:id="@+id/tv_house13"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border07"
@@ -420,7 +419,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
 
     <TextView
-        android:id="@+id/tv_name_13"
+        android:id="@+id/tv_house_09"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border05"
@@ -434,7 +433,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
 
     <TextView
-        android:id="@+id/tv_name_14"
+        android:id="@+id/tv_house_10"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border05"
@@ -444,7 +443,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_17"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_26"
-        app:layout_constraintStart_toEndOf="@+id/tv_name_13"
+        app:layout_constraintStart_toEndOf="@+id/tv_house_09"
         app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
 
     <TextView
@@ -462,7 +461,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
 
     <TextView
-        android:id="@+id/tv_name_16"
+        android:id="@+id/tv_house_11"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border06"
@@ -477,7 +476,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
 
     <TextView
-        android:id="@+id/tv_name_17"
+        android:id="@+id/tv_house_12"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border06"
@@ -487,7 +486,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_17"
         app:layout_constraintEnd_toStartOf="@+id/tv_18"
-        app:layout_constraintStart_toEndOf="@+id/tv_name_16"
+        app:layout_constraintStart_toEndOf="@+id/tv_house_11"
         app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
 
     <TextView
@@ -508,7 +507,7 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_26"
         app:layout_constraintStart_toStartOf="@+id/gl_h_19"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name_14" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_house_10" />
 
     <TextView
         android:id="@+id/tv_color_16"
@@ -518,7 +517,7 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_40"
         app:layout_constraintStart_toStartOf="@+id/gl_h_33"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name_16" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_house_11" />
 
     <TextView
         android:id="@+id/tv_color_17"
@@ -536,7 +535,7 @@
         android:layout_height="0dp"
         android:background="@drawable/border_black"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_32"
-        app:layout_constraintEnd_toStartOf="@+id/tv_name_19"
+        app:layout_constraintEnd_toStartOf="@+id/tv_house13"
         app:layout_constraintStart_toStartOf="@+id/gl_h_47"
         app:layout_constraintTop_toTopOf="@+id/gl_v_20" />
 
@@ -567,7 +566,7 @@
         android:layout_height="0dp"
         android:background="@drawable/border_black"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_80"
-        app:layout_constraintEnd_toStartOf="@+id/tv_name_23"
+        app:layout_constraintEnd_toStartOf="@+id/tv_house_16"
         app:layout_constraintStart_toStartOf="@+id/gl_h_47"
 
         app:layout_constraintTop_toTopOf="@+id/gl_v_68" />
@@ -635,7 +634,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border_black"
-        app:layout_constraintBottom_toTopOf="@+id/tv_name_05"
+        app:layout_constraintBottom_toTopOf="@+id/tv_house_04"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_19"
         app:layout_constraintStart_toStartOf="@+id/gl_h_12"
         app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
@@ -645,7 +644,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border_black"
-        app:layout_constraintBottom_toTopOf="@+id/tv_name_04"
+        app:layout_constraintBottom_toTopOf="@+id/tv_house_03"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_26"
         app:layout_constraintStart_toEndOf="@+id/tv_color_05"
         app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
@@ -666,7 +665,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border_black"
-        app:layout_constraintBottom_toTopOf="@+id/tv_name_02"
+        app:layout_constraintBottom_toTopOf="@+id/tv_house_02"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_40"
         app:layout_constraintStart_toStartOf="@+id/gl_h_33"
         app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
@@ -681,7 +680,7 @@
     <Button
         android:id="@+id/bt_roll"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/rounded_border"
@@ -724,7 +723,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#5D4037"
+        android:background="@drawable/border_ll_player"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_44"
         app:layout_constraintEnd_toEndOf="parent"
