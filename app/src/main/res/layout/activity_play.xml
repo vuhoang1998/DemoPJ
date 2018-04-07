@@ -152,7 +152,7 @@
         app:layout_constraintGuide_percent="0.83" />
 
     <TextView
-        android:id="@+id/tv_12"
+        android:id="@+id/tv_special_03"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border_eff"
@@ -195,7 +195,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_32" />
 
     <TextView
-        android:id="@+id/tv_name_09"
+        android:id="@+id/tv_rand_02"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border_rand"
@@ -220,7 +220,7 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_68"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_10"
         app:layout_constraintStart_toStartOf="@+id/gl_h_03"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name_09" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_rand_02" />
 
     <TextView
         android:id="@+id/tv_house_05"
@@ -237,7 +237,7 @@
         app:layout_constraintTop_toBottomOf="@+id/gl_v_68" />
 
     <TextView
-        android:id="@+id/tv_house_06"
+        android:id="@+id/tv_special_02"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border_eff"
@@ -279,7 +279,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_83" />
 
     <TextView
-        android:id="@+id/tv_name_03"
+        android:id="@+id/tv_rand_01"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border_rand"
@@ -303,7 +303,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_40"
-        app:layout_constraintStart_toEndOf="@+id/tv_name_03"
+        app:layout_constraintStart_toEndOf="@+id/tv_rand_01"
         app:layout_constraintTop_toTopOf="@+id/gl_v_83" />
 
     <TextView
@@ -321,7 +321,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_83" />
 
     <TextView
-        android:id="@+id/tv_00"
+        android:id="@+id/tv_special_01"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border_eff"
@@ -363,7 +363,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_56" />
 
     <TextView
-        android:id="@+id/tv_name_21"
+        android:id="@+id/tv_rand_04"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border_rand"
@@ -405,7 +405,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_20" />
 
     <TextView
-        android:id="@+id/tv_18"
+        android:id="@+id/tv_special_03"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border_eff"
@@ -447,7 +447,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
 
     <TextView
-        android:id="@+id/tv_name_15"
+        android:id="@+id/tv_rand_03"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border_rand"
@@ -485,7 +485,7 @@
         android:textSize="8sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_17"
-        app:layout_constraintEnd_toStartOf="@+id/tv_18"
+        app:layout_constraintEnd_toStartOf="@+id/tv_special_03"
         app:layout_constraintStart_toEndOf="@+id/tv_house_11"
         app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
 
