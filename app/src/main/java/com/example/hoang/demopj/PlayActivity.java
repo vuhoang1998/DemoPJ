@@ -131,7 +131,6 @@ public class PlayActivity extends AppCompatActivity {
         for (Block block: Block.blocks) {
             if (!(block instanceof SpecialBlock)) {
                 ((House) block).price = (random.nextInt(5) + 5) * 100;
-                break;
             }
         }
     }
@@ -228,11 +227,10 @@ public class PlayActivity extends AppCompatActivity {
 
     public void onClickHouse(View view) {
         for (Block block: Block.blocks) {
-            if (!(block instanceof SpecialBlock)) {
-                showInfo((House) block);
-                break;
-            } else {
-                Toast.makeText(getApplicationContext(), "this is dangerous", Toast.LENGTH_SHORT).show();
+            if (!(block instanceof SpecialBlock) ) {
+                if (((House) block).houseId == view.getId()) {
+                    showInfo((House) block);
+                }
             }
         }
     }
@@ -240,7 +238,7 @@ public class PlayActivity extends AppCompatActivity {
     private void showInfo(House house) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("GameConsole");
-        builder.setMessage("house number" + house.position);
+        builder.setMessage("house number" + house.price);
         builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -257,7 +255,6 @@ public class PlayActivity extends AppCompatActivity {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-
     }
 
 }
