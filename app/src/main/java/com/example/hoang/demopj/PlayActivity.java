@@ -165,6 +165,7 @@ public class PlayActivity extends AppCompatActivity {
             ivDice2nd.setImageResource(R.drawable.dicesix);
         }
 
+        
         players[turn].posPlayer +=dice1;
         players[turn].posPlayer +=dice2;
 
