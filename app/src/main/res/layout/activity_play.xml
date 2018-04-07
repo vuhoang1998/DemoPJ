@@ -671,7 +671,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline6"
+        android:id="@+id/gl_h_70"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -707,7 +707,7 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_59"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/guideline6"
+        app:layout_constraintStart_toEndOf="@+id/gl_h_70"
         app:layout_constraintTop_toBottomOf="@+id/gl_v_44"
         app:layout_constraintVertical_bias="1.0">
 
@@ -728,7 +728,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_44"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guideline6"
+        app:layout_constraintStart_toEndOf="@+id/gl_h_70"
         app:layout_constraintTop_toBottomOf="@+id/gl_v_29">
 
     </LinearLayout>
@@ -748,7 +748,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_74"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guideline6"
+        app:layout_constraintStart_toEndOf="@+id/gl_h_70"
         app:layout_constraintTop_toBottomOf="@+id/gl_v_59">
 
     </LinearLayout>
@@ -769,7 +769,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_89"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guideline6"
+        app:layout_constraintStart_toEndOf="@+id/gl_h_70"
         app:layout_constraintTop_toBottomOf="@+id/gl_v_74">
 
     </LinearLayout>
@@ -929,6 +929,39 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.85" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_74"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_40"
+        app:layout_constraintStart_toEndOf="@+id/gl_h_26"
+        app:layout_constraintTop_toBottomOf="@+id/gl_v_59">
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_74"
+        app:layout_constraintEnd_toStartOf="@+id/gl_h_33"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        app:srcCompat="@drawable/6"
+        android:scaleType="fitCenter"/>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_74"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_59"
+        app:srcCompat="@drawable/6"
+        android:scaleType="fitCenter"/>
 
 
 </android.support.constraint.ConstraintLayout>
