@@ -30,6 +30,7 @@ public class PlayActivity extends AppCompatActivity {
     int dice2 = 0;
     int dice = 0;
     int choose;
+
     @BindView(R.id.iv_dice_1st)
     ImageView ivDice1st;
     @BindView(R.id.iv_dice_2nd)
