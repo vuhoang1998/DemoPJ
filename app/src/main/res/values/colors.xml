@@ -5,4 +5,5 @@
     <color name="colorAccent">#ff4081</color>
     <color name="colorChange">#6200EA</color>
     <color name="border_black">#FF000000</color>
+    <color name="colorPrice">#FFEB3B</color>
 </resources>
