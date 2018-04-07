@@ -11,7 +11,6 @@ import butterknife.ButterKnife;
 
 public class PlayActivity extends AppCompatActivity {
     Random random = new Random();
-    Scanner sc = new Scanner(System.in);
     Player[] player = new Player[4];
 
     boolean endGame = false;
@@ -32,7 +31,7 @@ public class PlayActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-       // create();
+        // create();
 //        while (!endGame) {
 //            roll();
 ////            draw();
@@ -45,6 +44,7 @@ public class PlayActivity extends AppCompatActivity {
 //            endGame = true;
 //        }
     }
+
     //getPosV
     public float getPosV(int p) {
         float v = 0.0f;
@@ -65,6 +65,7 @@ public class PlayActivity extends AppCompatActivity {
         }
         return v;
     }
+
     //getPosH
     public float getPosH(int p) {
         float h = 0.0f;
@@ -87,9 +88,11 @@ public class PlayActivity extends AppCompatActivity {
         }
         return h;
     }
+
     //create
     public void create() {
-        for (House house: House.houses) {
+        //create house price
+        for (House house : House.houses) {
             house.price = (random.nextInt(5) + 5) * 100;
         }
         for (int i = 0; i < 4; i++) {
@@ -98,10 +101,12 @@ public class PlayActivity extends AppCompatActivity {
             player[i].alive = true; //death
         }
     }
+
     //roll
     public void roll() {
 
     }
+
     //check death
     void checkAlive() {
         int countDeath = 0;

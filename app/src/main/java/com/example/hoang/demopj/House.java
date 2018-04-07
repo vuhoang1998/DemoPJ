@@ -27,7 +27,7 @@ public class House {
       new House(3, 2000, 0, 0, R.id.tv_house_03),
       new House(4, 2000, 0, 0, R.id.tv_house_04),
       new House(5, 2000, 0, 0, R.id.tv_house_05),
-      new House(6, 2000, 0, 0, R.id.tv_special_02),
+      new House(6, 2000, 0, 0, R.id.tv_house_06),
       new House(7, 2000, 0, 0, R.id.tv_house_07),
       new House(8, 2000, 0, 0, R.id.tv_house_08),
       new House(9, 2000, 0, 0, R.id.tv_house_09),
