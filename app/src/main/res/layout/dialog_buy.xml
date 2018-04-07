@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Bạn có muốn đăng xuất không?"
+        android:text="Bạn có muốn mua ô đất này không?"
         android:textSize="16sp"
         android:textStyle="bold" />
 
