@@ -3,6 +3,7 @@ package com.example.hoang.demopj;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.constraint.Guideline;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -164,6 +165,18 @@ public class PlayActivity extends AppCompatActivity {
         } else if (dice2==6){
             ivDice2nd.setImageResource(R.drawable.dicesix);
         }
+
+        players[turn].posPlayer +=dice1;
+        players[turn].posPlayer +=dice2;
+
+            ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer01.getLayoutParams();
+            paramsH.guidePercent = 0.5f;
+            glHPlayer01.setLayoutParams(paramsH);
+
+            ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer01.getLayoutParams();
+            paramsV.guidePercent = 0.5f;
+            glVPlayer01.setLayoutParams(paramsV);
+
     }
     @OnClick(R.id.bt_roll)
     public void onViewClicked() {
