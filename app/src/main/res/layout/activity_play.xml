@@ -434,7 +434,7 @@
         android:layout_height="0dp"
         android:background="@drawable/border_eff"
         android:gravity="center"
-        android:text="GO TO JAIL"
+        android:text="Go to jail"
         android:textSize="10sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
@@ -970,7 +970,7 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="@+id/gl_h_65"
         app:layout_constraintTop_toTopOf="@+id/gl_v_05"
-        app:srcCompat="@drawable/dicesix" />
+        app:srcCompat="@drawable/dicestart" />
 
     <ImageView
         android:id="@+id/iv_dice_2nd"
