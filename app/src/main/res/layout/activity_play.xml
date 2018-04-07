@@ -405,7 +405,7 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_20" />
 
     <TextView
-        android:id="@+id/tv_special_03"
+        android:id="@+id/tv_special_04"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border_eff"
