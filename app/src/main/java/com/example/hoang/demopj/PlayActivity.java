@@ -217,19 +217,19 @@ public class PlayActivity extends AppCompatActivity {
     //getPosV
     public float getPosV(int p) {
         float v = 0.0f;
-        if (player[p][1] >= 0 && player[p][1] <= 6) {
+        if (player[p].posPlayer >= 0 && player[p].posPlayer <= 6) {
             v = 0.83f;
-        } else if (player[p][1] >= 12 && player[p][1] <= 18) {
+        } else if (player[p].posPlayer >= 12 && player[p].posPlayer <= 18) {
             v = 0.05f;
-        } else if (player[p][1] == 7 || player[p][1] == 23) {
+        } else if (player[p].posPlayer == 7 || player[p].posPlayer == 23) {
             v = 0.68f;
-        } else if (player[p][1] == 8 || player[p][1] == 22) {
+        } else if (player[p].posPlayer == 8 || player[p].posPlayer == 22) {
             v = 0.56f;
-        } else if (player[p][1] == 9 || player[p][1] == 21) {
+        } else if (player[p].posPlayer == 9 || player[p].posPlayer == 21) {
             v = 0.44f;
-        } else if (player[p][1] == 10 || player[p][1] == 20) {
+        } else if (player[p].posPlayer == 10 || player[p].posPlayer == 20) {
             v = 0.32f;
-        } else if (player[p][1] == 11 || player[p][1] == 19) {
+        } else if (player[p].posPlayer == 11 || player[p].posPlayer == 19) {
             v = 0.20f;
         }
         return v;
@@ -238,21 +238,21 @@ public class PlayActivity extends AppCompatActivity {
     //getPosH
     public float getPosH(int p) {
         float h = 0.0f;
-        if (player[p][1] >= 6 && player[p][1] <= 12) {
+        if (player[p].posPlayer >= 6 && player[p].posPlayer <= 12) {
             h = 0.03f;
-        } else if (player[p][1] >= 18 && player[p][1] <= 23) {
+        } else if (player[p].posPlayer >= 18 && player[p].posPlayer <= 23) {
             h = 0.49f;
-        } else if (player[p][1] == 0) {
+        } else if (player[p].posPlayer == 0) {
             h = 0.49f;
-        } else if (player[p][1] == 1 || player[p][1] == 17) {
+        } else if (player[p].posPlayer == 1 || player[p].posPlayer == 17) {
             h = 0.40f;
-        } else if (player[p][1] == 2 || player[p][1] == 16) {
+        } else if (player[p].posPlayer == 2 || player[p].posPlayer == 16) {
             h = 0.33f;
-        } else if (player[p][1] == 3 || player[p][1] == 15) {
+        } else if (player[p].posPlayer == 3 || player[p].posPlayer == 15) {
             h = 0.26f;
-        } else if (player[p][1] == 4 || player[p][1] == 14) {
+        } else if (player[p].posPlayer == 4 || player[p].posPlayer == 14) {
             h = 0.19f;
-        } else if (player[p][1] == 5 || player[p][1] == 13) {
+        } else if (player[p].posPlayer == 5 || player[p].posPlayer == 13) {
             h = 0.12f;
         }
         return h;
