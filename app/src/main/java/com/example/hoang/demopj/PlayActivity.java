@@ -8,12 +8,14 @@ import java.util.Scanner;
 public class PlayActivity extends AppCompatActivity {
     Random rd = new Random();
     Scanner sc = new Scanner(System.in);
-    int [][]map = new int[24][3];
-    int [][]player = new int[4][3];
+    House []house = new House[24];
+    Player []player = new Player[4];
 
     boolean endGame = false;
     int turn = 0;
-    int dice;
+    int dice1 = 0;
+    int dice2 = 0;
+    int dice = 0;
     int choose;
 
     @Override
@@ -25,9 +27,9 @@ public class PlayActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-//        create();
-//        while (!endGame){
-//            play();
+        create();
+        while (!endGame){
+            play();
 //            draw();
 //            choosePlayer();
 //            checkDeath();
@@ -35,9 +37,10 @@ public class PlayActivity extends AppCompatActivity {
 //            if (turn==4){
 //                turn = 0;
 //            }
-//        }
+            endGame = true;
+        }
     }
-
+    //getPosV
     public float getPosV(int p){
         float v = 0.0f;
         if(player[p][1]>=0&&player[p][1]<=6){
@@ -57,6 +60,7 @@ public class PlayActivity extends AppCompatActivity {
         }
         return v;
     }
+    //getPosH
     public float getPosH(int p){
         float h = 0.0f;
         if(player[p][1]>=6&&player[p][1]<=12){
@@ -78,19 +82,22 @@ public class PlayActivity extends AppCompatActivity {
         }
         return h;
     }
-
     //create
     public void create(){
         for (int i = 0 ; i < 24 ; i++){
-            map[i][0] = (rd.nextInt(5)+5)*100; // money
-            map[i][1] = 0; // player occupy
-            map[i][2] = 0; // player building
+            house[i].price = (rd.nextInt(5)+5)*100; // money
+            house[i].playerOccupy = 0; // player occupy
+            house[i].lvHouse = 0; // player building
         }
         for (int i = 0 ; i < 4 ; i++){
-            player[i][0] = 3000; //money
-            player[i][1] = 0; //pos
-            player[i][2] = 1; //death
+            player[i].money = 3000; //money
+            player[i].posPlayer = 0; //pos
+            player[i].alive = true; //death
         }
+    }
+    //dive
+    public void dive(){
+
     }
     //draw
     public void draw(){
@@ -193,7 +200,6 @@ public class PlayActivity extends AppCompatActivity {
     }
     //logic
     public void play(){
-        dice = 0;
         dice = rd.nextInt(6)+1;
         dice += rd.nextInt(6)+1;
         player[turn][1] += dice;
@@ -214,8 +220,7 @@ public class PlayActivity extends AppCompatActivity {
                 }
             } else if(map[player[turn][1]][1]==turn+1){
                 System.out.println("You choose: 1.Building  2.Ignore");
-                choose = sc.nextInt();
-                if(choose ==1){
+                choose = sc.nextInt();if(choose ==1){
                     player[turn][0] -= map[player[turn][1]][0];
                     map[player[turn][1]][2] += 1;
                 }
