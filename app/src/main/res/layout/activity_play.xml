@@ -671,19 +671,18 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline6"
+        android:id="@+id/gl_h_65"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.7" />
+        app:layout_constraintGuide_percent="0.65" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/rounded_border"
         android:text="Back"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_17"
@@ -707,7 +706,7 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_59"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/guideline6"
+        app:layout_constraintStart_toEndOf="@+id/gl_h_65"
         app:layout_constraintTop_toBottomOf="@+id/gl_v_44"
         app:layout_constraintVertical_bias="1.0">
 
@@ -728,7 +727,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_44"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guideline6"
+        app:layout_constraintStart_toEndOf="@+id/gl_h_65"
         app:layout_constraintTop_toBottomOf="@+id/gl_v_29">
 
     </LinearLayout>
@@ -748,7 +747,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_74"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guideline6"
+        app:layout_constraintStart_toEndOf="@+id/gl_h_65"
         app:layout_constraintTop_toBottomOf="@+id/gl_v_59">
 
     </LinearLayout>
@@ -769,7 +768,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_89"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guideline6"
+        app:layout_constraintStart_toEndOf="@+id/gl_h_65"
         app:layout_constraintTop_toBottomOf="@+id/gl_v_74">
 
     </LinearLayout>
@@ -786,7 +785,7 @@
         app:layout_constraintStart_toStartOf="@+id/linearLayout2"
         app:layout_constraintTop_toBottomOf="@+id/gl_v_29"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@drawable/player1" />
 
     <ImageView
         android:id="@+id/iv_name_pl2"
@@ -799,7 +798,7 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="@+id/linearLayout3"
         app:layout_constraintTop_toTopOf="@+id/gl_v_44"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@drawable/player2" />
 
     <ImageView
         android:id="@+id/iv_name_pl3"
@@ -812,7 +811,7 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="@+id/linearLayout4"
         app:layout_constraintTop_toTopOf="@+id/gl_v_59"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@drawable/player3" />
 
     <ImageView
         android:id="@+id/iv_name_pl4"
@@ -825,7 +824,7 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="@+id/linearLayout5"
         app:layout_constraintTop_toTopOf="@+id/gl_v_74"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@drawable/player4" />
 
     <TextView
         android:id="@+id/tv_name_pl1"
@@ -929,6 +928,29 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.85" />
+
+    <ImageView
+        android:id="@+id/iv_dice_1st"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_17"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@+id/gl_h_65"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_05"
+        app:srcCompat="@drawable/dicesix" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_17"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toEndOf="@+id/iv_dice_1st"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_05"
+        app:srcCompat="@drawable/diceStart" />
 
 
 </android.support.constraint.ConstraintLayout>
