@@ -97,7 +97,7 @@
         app:srcCompat="@drawable/player3" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/player_1_name"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -113,7 +113,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/player_2_name"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -126,7 +126,7 @@
         app:layout_constraintBottom_toTopOf="@+id/hori3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/vert2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/player_1_name" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -142,7 +142,7 @@
         app:srcCompat="@drawable/player4" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/player_3_name"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -158,7 +158,7 @@
         app:layout_constraintTop_toTopOf="@+id/hori3" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/player_4_name"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -171,7 +171,7 @@
         app:layout_constraintBottom_toTopOf="@+id/hori5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/vert2"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/player_3_name" />
 
     <Button
         android:id="@+id/bt_next"
