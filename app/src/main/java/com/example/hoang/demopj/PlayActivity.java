@@ -1,29 +1,57 @@
 package com.example.hoang.demopj;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.Guideline;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.hoang.demopj.estate.House;
 
 import java.util.Random;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+import static com.example.hoang.demopj.Player.players;
 
 
 public class PlayActivity extends AppCompatActivity {
     Random random = new Random();
-    Player[] player = new Player[4];
-
     boolean endGame = false;
     int turn = 0;
     int dice1 = 0;
     int dice2 = 0;
     int dice = 0;
     int choose;
+    @BindView(R.id.iv_dice_1st)
+    ImageView ivDice1st;
+    @BindView(R.id.iv_dice_2nd)
+    ImageView ivDice2nd;
+    @BindView(R.id.gl_h_player01)
+    Guideline glHPlayer01;
+    @BindView(R.id.gl_v_player01)
+    Guideline glVPlayer01;
+    @BindView(R.id.gl_h_player02)
+    Guideline glHPlayer02;
+    @BindView(R.id.gl_v_player02)
+    Guideline glVPlayer02;
+    @BindView(R.id.gl_h_player03)
+    Guideline glHPlayer03;
+    @BindView(R.id.gl_v_player03)
+    Guideline glVPlayer03;
+    @BindView(R.id.gl_h_player04)
+    Guideline glHPlayer04;
+    @BindView(R.id.gl_v_player04)
+    Guideline glVPlayer04;
+    @BindView(R.id.bt_roll)
+    Button btRoll;
 
 
     @Override
@@ -31,13 +59,13 @@ public class PlayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
         ButterKnife.bind(this);
+        create();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        // create();
-//        while (!endGame) {
+        while (!endGame) {
 //            roll();
 ////            draw();
 ////            choosePlayer();
@@ -46,49 +74,48 @@ public class PlayActivity extends AppCompatActivity {
 ////            if (turn==4){
 ////                turn = 0;
 ////            }
-//            endGame = true;
-//        }
+            endGame = true;
+        }
     }
 
     //getPosV
     public float getPosV(int p) {
         float v = 0.0f;
-        if (player[p].posPlayer >= 0 && player[p].posPlayer <= 6) {
+        if (players[p].posPlayer >= 0 && players[p].posPlayer <= 6) {
             v = 0.83f;
-        } else if (player[p].posPlayer >= 12 && player[p].posPlayer <= 18) {
+        } else if (players[p].posPlayer >= 12 && players[p].posPlayer <= 18) {
             v = 0.05f;
-        } else if (player[p].posPlayer == 7 || player[p].posPlayer == 23) {
+        } else if (players[p].posPlayer == 7 || players[p].posPlayer == 23) {
             v = 0.68f;
-        } else if (player[p].posPlayer == 8 || player[p].posPlayer == 22) {
+        } else if (players[p].posPlayer == 8 || players[p].posPlayer == 22) {
             v = 0.56f;
-        } else if (player[p].posPlayer == 9 || player[p].posPlayer == 21) {
+        } else if (players[p].posPlayer == 9 || players[p].posPlayer == 21) {
             v = 0.44f;
-        } else if (player[p].posPlayer == 10 || player[p].posPlayer == 20) {
+        } else if (players[p].posPlayer == 10 || players[p].posPlayer == 20) {
             v = 0.32f;
-        } else if (player[p].posPlayer == 11 || player[p].posPlayer == 19) {
+        } else if (players[p].posPlayer == 11 || players[p].posPlayer == 19) {
             v = 0.20f;
         }
         return v;
     }
-
     //getPosH
     public float getPosH(int p) {
         float h = 0.0f;
-        if (player[p].posPlayer >= 6 && player[p].posPlayer <= 12) {
+        if (players[p].posPlayer >= 6 && players[p].posPlayer <= 12) {
             h = 0.03f;
-        } else if (player[p].posPlayer >= 18 && player[p].posPlayer <= 23) {
+        } else if (players[p].posPlayer >= 18 && players[p].posPlayer <= 23) {
             h = 0.49f;
-        } else if (player[p].posPlayer == 0) {
+        } else if (players[p].posPlayer == 0) {
             h = 0.49f;
-        } else if (player[p].posPlayer == 1 || player[p].posPlayer == 17) {
+        } else if (players[p].posPlayer == 1 || players[p].posPlayer == 17) {
             h = 0.40f;
-        } else if (player[p].posPlayer == 2 || player[p].posPlayer == 16) {
+        } else if (players[p].posPlayer == 2 || players[p].posPlayer == 16) {
             h = 0.33f;
-        } else if (player[p].posPlayer == 3 || player[p].posPlayer == 15) {
+        } else if (players[p].posPlayer == 3 || players[p].posPlayer == 15) {
             h = 0.26f;
-        } else if (player[p].posPlayer == 4 || player[p].posPlayer == 14) {
+        } else if (players[p].posPlayer == 4 || players[p].posPlayer == 14) {
             h = 0.19f;
-        } else if (player[p].posPlayer == 5 || player[p].posPlayer == 13) {
+        } else if (players[p].posPlayer == 5 || players[p].posPlayer == 13) {
             h = 0.12f;
         }
         return h;
@@ -100,23 +127,47 @@ public class PlayActivity extends AppCompatActivity {
         for (House house : House.houses) {
             house.price = (random.nextInt(5) + 5) * 100;
         }
-        for (int i = 0; i < 4; i++) {
-            player[i].money = 3000; //money
-            player[i].posPlayer = 0; //pos
-            player[i].alive = true; //death
-        }
     }
-
     //roll
     public void roll() {
-
+        dice1 = random.nextInt(6) + 1;
+        dice2 = random.nextInt(6) + 1;
+        if(dice1==1){
+            ivDice1st.setImageResource(R.drawable.diceone);
+        } else if (dice1==2){
+            ivDice1st.setImageResource(R.drawable.dicetwo);
+        } else if (dice1==3){
+            ivDice1st.setImageResource(R.drawable.dicethree);
+        } else if (dice1==4){
+            ivDice1st.setImageResource(R.drawable.dicefour);
+        } else if (dice1==5){
+            ivDice1st.setImageResource(R.drawable.dicefive);
+        } else if (dice1==6){
+            ivDice1st.setImageResource(R.drawable.dicesix);
+        }
+        if(dice2==1){
+            ivDice2nd.setImageResource(R.drawable.diceone);
+        } else if (dice2==2){
+            ivDice2nd.setImageResource(R.drawable.dicetwo);
+        } else if (dice2==3){
+            ivDice2nd.setImageResource(R.drawable.dicethree);
+        } else if (dice2==4){
+            ivDice2nd.setImageResource(R.drawable.dicefour);
+        } else if (dice2==5){
+            ivDice2nd.setImageResource(R.drawable.dicefive);
+        } else if (dice2==6){
+            ivDice2nd.setImageResource(R.drawable.dicesix);
+        }
     }
-
+    @OnClick(R.id.bt_roll)
+    public void onViewClicked() {
+        roll();
+    }
     //check death
     void checkAlive() {
         int countDeath = 0;
         for (int i = 0; i < 4; i++) {
-            if (player[i].alive == false) {
+            if (players[i].alive == false) {
                 countDeath++;
             }
         }
@@ -124,8 +175,8 @@ public class PlayActivity extends AppCompatActivity {
             endGame = true;
         }
         for (int i = 0; i < 4; i++) {
-            if (player[i].money <= 0) {
-                player[i].alive = false;
+            if (players[i].money <= 0) {
+                players[i].alive = false;
             }
         }
     }
@@ -157,7 +208,7 @@ public class PlayActivity extends AppCompatActivity {
 //    }
 
     public void onClick(View view) {
-        for (House house: House.houses) {
+        for (House house : House.houses) {
             if (house.houseId == view.getId()) {
                 showInfo(house);
             }
@@ -167,7 +218,7 @@ public class PlayActivity extends AppCompatActivity {
     private void showInfo(House house) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("GameConsole");
-        builder.setMessage("house number" + house.posHouse);
+        builder.setMessage("house number" + house.mapPos);
         builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
