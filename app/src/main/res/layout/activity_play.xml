@@ -152,7 +152,7 @@
         app:layout_constraintGuide_percent="0.83" />
 
     <TextView
-        android:id="@+id/tv_"
+        android:id="@+id/tv_special_03"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border_eff"
@@ -485,7 +485,7 @@
         android:textSize="8sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_17"
-        app:layout_constraintEnd_toStartOf="@+id/tv_special_03"
+        app:layout_constraintEnd_toStartOf="@+id/tv_special_04"
         app:layout_constraintStart_toEndOf="@+id/tv_house_11"
         app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
 
