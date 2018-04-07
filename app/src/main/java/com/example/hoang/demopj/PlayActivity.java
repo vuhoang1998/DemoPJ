@@ -224,7 +224,8 @@ public class PlayActivity extends AppCompatActivity {
     private void showInfo(House house) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("GameConsole");
-        builder.setMessage("house number" + house.price);
+        String message = "Buy cost: " + house.price + "\nupgrade fee: " + house.price / 2;
+        builder.setMessage(message);
         builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
