@@ -287,11 +287,21 @@ public class PlayActivity extends AppCompatActivity {
 
     //setBlock
     public void setBlock() {
-        if (!(Block.blocks[players[turn].posPlayer] instanceof SpecialBlock)) {
-            House currentHouse = (House) Block.blocks[players[turn].posPlayer];
-            if (currentHouse.playerOccupy == 0) {
-                if (players[turn].money > currentHouse.price) {
-                    showDialogBuy();
+//        if (!(block instanceof SpecialBlock)) {
+//            House currentHouse = (House) Block.blocks[players[turn].posPlayer];
+//            if (currentHouse.playerOccupy == 0) {
+//                if (players[turn].money > currentHouse.price) {showDialogBuy();
+//                }
+//            }
+//        }
+        for (Block block : Block.blocks) {
+            if (!(block instanceof SpecialBlock)) {
+                if (((House) block).position == players[turn].posPlayer) {
+                    if (((House) block).playerOccupy == 0) {
+                        if (players[turn].money > ((House) block).price) {
+                            showDialogBuy();
+                        }
+                    }
                 }
             }
         }
