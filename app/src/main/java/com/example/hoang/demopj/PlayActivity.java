@@ -1,7 +1,11 @@
 package com.example.hoang.demopj;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -150,4 +154,36 @@ public class PlayActivity extends AppCompatActivity {
 //            }
 //        }
 //    }
+
+    public void onClick(View view) {
+        for (House house: House.houses) {
+            if (house.houseId == view.getId()) {
+                showInfo(house);
+            }
+        }
+    }
+
+    private void showInfo(House house) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("GameConsole");
+        builder.setMessage("house number" + house.posHouse);
+        builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(PlayActivity.this, "purchased", Toast.LENGTH_SHORT).show();
+                dialogInterface.dismiss();
+            }
+        });
+        builder.setNegativeButton("Nein", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(PlayActivity.this, "Heil hilter", Toast.LENGTH_SHORT).show();
+                dialogInterface.dismiss();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+    }
+
 }

@@ -170,6 +170,8 @@
         android:layout_height="0dp"
         android:background="@drawable/border04"
         android:gravity="center"
+        android:onClick="onClick"
+
         android:text="Hà Tĩnh\n 1400"
         android:textSize="8sp"
         android:textStyle="bold"
@@ -186,6 +188,8 @@
         android:layout_height="0dp"
         android:background="@drawable/border04"
         android:gravity="center"
+        android:onClick="onClick"
+
         android:text="Thanh Hóa\n 1200"
         android:textSize="8sp"
         android:textStyle="bold"
@@ -215,6 +219,8 @@
         android:background="@drawable/border03"
         android:gravity="center"
         android:text="Nam Định\n 1000"
+        android:onClick="onClick"
+
         android:textSize="8sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_68"
@@ -224,6 +230,8 @@
 
     <TextView
         android:id="@+id/tv_house_05"
+        android:onClick="onClick"
+
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border03"
@@ -254,6 +262,8 @@
         android:id="@+id/tv_house_04"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:onClick="onClick"
+
         android:background="@drawable/border02"
         android:gravity="center"
         android:text="Hà Nội\n 3000"
@@ -269,6 +279,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border02"
+        android:onClick="onClick"
+
         android:gravity="center"
         android:text="Hải Phòng\n 1500"
         android:textSize="8sp"
@@ -297,6 +309,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border01"
+        android:onClick="onClick"
+
         android:gravity="center"
         android:text="Hòa Bình\n 700"
         android:textSize="8sp"
@@ -310,11 +324,13 @@
         android:id="@+id/tv_house_01"
         android:layout_width="0dp"
         android:layout_height="0dp"
+
         android:background="@drawable/border01"
         android:gravity="center"
         android:text="Lào Cai\n 600"
         android:textSize="8sp"
         android:textStyle="bold"
+        android:onClick="onClick"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_47"
         app:layout_constraintStart_toStartOf="@+id/gl_h_40"
@@ -340,6 +356,8 @@
         android:layout_height="0dp"
         android:background="@drawable/border08"
         android:gravity="center"
+        android:onClick="onClick"
+
         android:text="HCM\n3000"
         android:textSize="8sp"
         android:textStyle="bold"
@@ -353,6 +371,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border08"
+        android:onClick="onClick"
+
         android:gravity="center"
         android:text="Cà Mau\n2000"
         android:textSize="8sp"
@@ -381,6 +401,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border07"
+        android:onClick="onClick"
+
         android:gravity="center"
         android:text="Vũng Tàu\n1800"
         android:textSize="8sp"
@@ -393,6 +415,8 @@
     <TextView
         android:id="@+id/tv_house_13"
         android:layout_width="0dp"
+        android:onClick="onClick"
+
         android:layout_height="0dp"
         android:background="@drawable/border07"
         android:gravity="center"
@@ -420,6 +444,8 @@
 
     <TextView
         android:id="@+id/tv_house_09"
+        android:onClick="onClick"
+
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border05"
@@ -434,6 +460,8 @@
 
     <TextView
         android:id="@+id/tv_house_10"
+        android:onClick="onClick"
+
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border05"
@@ -462,6 +490,8 @@
 
     <TextView
         android:id="@+id/tv_house_11"
+        android:onClick="onClick"
+
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border06"
@@ -478,6 +508,8 @@
     <TextView
         android:id="@+id/tv_house_12"
         android:layout_width="0dp"
+        android:onClick="onClick"
+
         android:layout_height="0dp"
         android:background="@drawable/border06"
         android:gravity="center"

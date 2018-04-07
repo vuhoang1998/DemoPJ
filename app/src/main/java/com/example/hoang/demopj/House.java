@@ -11,6 +11,7 @@ public class House {
     int price;
     int playerOccupy;
     int lvHouse;
+    int houseId;
 
     private Random random = new Random();
 
@@ -19,6 +20,7 @@ public class House {
         this.lvHouse = lvHouse;
         this.price = price;
         this.playerOccupy = playerOccupy;
+        this.houseId = houseId;
     }
 
     public static House[] houses = new House[] {
