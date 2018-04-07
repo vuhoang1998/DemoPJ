@@ -109,8 +109,8 @@ public class PlayActivity extends AppCompatActivity {
     TextView tvColor02;
     @BindView(R.id.gl_h_65)
     Guideline glH65;
-    @BindView(R.id.button)
-    Button button;
+    @BindView(R.id.bt_roll)
+    Button btRoll;
     @BindView(R.id.gl_v_59)
     Guideline glV59;
     @BindView(R.id.linearLayout3)
