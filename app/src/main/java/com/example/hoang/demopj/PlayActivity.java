@@ -322,7 +322,7 @@ public class PlayActivity extends AppCompatActivity {
                 House currentHouse1 = (House) Block.blocks[players[turn].posPlayer];
                 players[turn].money -= currentHouse1.price;
                // setColor();
-                tvColor[players[turn].posPlayer].setBackgroundResource(R.color.player01);
+                tvColor[11].setBackgroundResource(R.color.player01);
             }
         });
         builder.setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
@@ -341,8 +341,9 @@ public class PlayActivity extends AppCompatActivity {
             Log.d(TAG, "wtf?");
             turn = 0;
         }
-        setTurn();
         roll();
+        setTurn();
+
         setBlock();
         turn += 1;
     }

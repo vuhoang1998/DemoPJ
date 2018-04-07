@@ -434,13 +434,15 @@
         android:layout_height="0dp"
         android:background="@drawable/border_eff"
         android:gravity="center"
-        android:text="G"
+        android:text="Go to Jail"
         android:textSize="10sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_56"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/gl_h_47"
-        app:layout_constraintTop_toTopOf="@+id/gl_v_05" />
+        app:layout_constraintTop_toTopOf="@+id/gl_v_05"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tv_house_09"
