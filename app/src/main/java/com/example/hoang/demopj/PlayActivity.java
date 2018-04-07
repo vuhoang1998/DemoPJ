@@ -11,7 +11,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.hoang.demopj.estate.Block;
 import com.example.hoang.demopj.estate.House;
+import com.example.hoang.demopj.estate.SpecialBlock;
 
 import java.util.Random;
 
@@ -124,8 +126,11 @@ public class PlayActivity extends AppCompatActivity {
     //create
     public void create() {
         //create house price
-        for (House house : House.houses) {
-            house.price = (random.nextInt(5) + 5) * 100;
+        for (Block block: Block.blocks) {
+            if (!(block instanceof SpecialBlock)) {
+                ((House) block).price = (random.nextInt(5) + 5) * 100;
+                break;
+            }
         }
     }
     //roll
@@ -208,9 +213,12 @@ public class PlayActivity extends AppCompatActivity {
 //    }
 
     public void onClickHouse(View view) {
-        for (House house : House.houses) {
-            if (house.houseId == view.getId()) {
-                showInfo(house);
+        for (Block block: Block.blocks) {
+            if (!(block instanceof SpecialBlock)) {
+                showInfo((House) block);
+                break;
+            } else {
+                Toast.makeText(getApplicationContext(), "this is dangerous", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -218,7 +226,7 @@ public class PlayActivity extends AppCompatActivity {
     private void showInfo(House house) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("GameConsole");
-        builder.setMessage("house number" + house.mapPos);
+        builder.setMessage("house number" + house.position);
         builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
