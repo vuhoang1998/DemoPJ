@@ -336,13 +336,15 @@ public class PlayActivity extends AppCompatActivity {
     public void showDialogBuy() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("GameConsole");
-        String message = " Do you want to buy this land? ";
+        House currentHouse2 = (House) Block.blocks[players[turn].posPlayer];
+        String message = " Do you want to buy "+currentHouse2.name+" ? ";
         builder.setMessage(message);
         builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 House currentHouse1 = (House) Block.blocks[players[turn].posPlayer];
                 players[turn].money -= currentHouse1.price;
+                currentHouse1.playerOccupy = turn;
                // setColor();
                 tvColor[11].setBackgroundResource(R.color.player01);
             }
