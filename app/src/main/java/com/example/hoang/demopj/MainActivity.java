@@ -2,6 +2,7 @@ package com.example.hoang.demopj;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.Guideline;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
@@ -17,11 +18,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         //ads
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
     }
 
     @Override
