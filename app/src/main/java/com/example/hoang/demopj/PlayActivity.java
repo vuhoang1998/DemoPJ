@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hoang.demopj.estate.Block;
-import com.example.hoang.demopj.estate.ColorHouse;
 import com.example.hoang.demopj.estate.House;
 import com.example.hoang.demopj.estate.SpecialBlock;
 
@@ -38,6 +37,19 @@ public class PlayActivity extends AppCompatActivity {
     int choose;
     float v = 0.0f;
     float h = 0.0f;
+
+    @BindView(R.id.tv_name_1)
+    TextView playerName1;
+
+    @BindView(R.id.tv_name_2)
+    TextView playerName2;
+
+    @BindView(R.id.tv_name_3)
+    TextView playerName3;
+
+    @BindView(R.id.tv_name_4)
+    TextView playerName4;
+
 
     @BindView(R.id.iv_dice_1st)
     ImageView ivDice1st;
@@ -372,6 +384,11 @@ public class PlayActivity extends AppCompatActivity {
             TextView textView = findViewById(currentHouse.houseId);
             textView.setText(currentHouse.name + "\n" + Integer.toString(currentHouse.price));
         }
+        playerName1.setText(Player.players[0].name);
+        playerName2.setText(Player.players[1].name);
+        playerName3.setText(Player.players[2].name);
+        playerName4.setText(Player.players[3].name);
+
     }
 //    public void choosePlayer() {
 //        if (player[turn][1] != 0 && player[turn][1] != 12 && player[turn][1] != 18 && player[turn][1] != 6) {
