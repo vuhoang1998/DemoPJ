@@ -33,6 +33,4 @@ public class RegisterActivity extends AppCompatActivity {
         Intent intent = new Intent(RegisterActivity.this,PlayActivity.class);
         startActivity(intent);
     }
-
-
 }
