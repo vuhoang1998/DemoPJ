@@ -14,6 +14,7 @@ import java.util.Scanner;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
 public class PlayActivity extends AppCompatActivity {
     Random rd = new Random();
     Scanner sc = new Scanner(System.in);
@@ -199,64 +200,61 @@ public class PlayActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        create();
-        while (!endGame) {
-            play();
-//            draw();
-//            choosePlayer();
-//            checkDeath();
-//            turn++;
-//            if (turn==4){
-//                turn = 0;
-//            }
-            endGame = true;
-        }
+       // create();
+//        while (!endGame) {
+//            roll();
+////            draw();
+////            choosePlayer();
+////            checkDeath();
+////            turn++;
+////            if (turn==4){
+////                turn = 0;
+////            }
+//            endGame = true;
+//        }
     }
-
     //getPosV
     public float getPosV(int p) {
         float v = 0.0f;
-        if (player[p][1] >= 0 && player[p][1] <= 6) {
+        if (player[p].posPlayer >= 0 && player[p].posPlayer <= 6) {
             v = 0.83f;
-        } else if (player[p][1] >= 12 && player[p][1] <= 18) {
+        } else if (player[p].posPlayer >= 12 && player[p].posPlayer <= 18) {
             v = 0.05f;
-        } else if (player[p][1] == 7 || player[p][1] == 23) {
+        } else if (player[p].posPlayer == 7 || player[p].posPlayer == 23) {
             v = 0.68f;
-        } else if (player[p][1] == 8 || player[p][1] == 22) {
+        } else if (player[p].posPlayer == 8 || player[p].posPlayer == 22) {
             v = 0.56f;
-        } else if (player[p][1] == 9 || player[p][1] == 21) {
+        } else if (player[p].posPlayer == 9 || player[p].posPlayer == 21) {
             v = 0.44f;
-        } else if (player[p][1] == 10 || player[p][1] == 20) {
+        } else if (player[p].posPlayer == 10 || player[p].posPlayer == 20) {
             v = 0.32f;
-        } else if (player[p][1] == 11 || player[p][1] == 19) {
+        } else if (player[p].posPlayer == 11 || player[p].posPlayer == 19) {
             v = 0.20f;
         }
         return v;
     }
-
     //getPosH
     public float getPosH(int p) {
         float h = 0.0f;
-        if (player[p][1] >= 6 && player[p][1] <= 12) {
+        if (player[p].posPlayer >= 6 && player[p].posPlayer <= 12) {
             h = 0.03f;
-        } else if (player[p][1] >= 18 && player[p][1] <= 23) {
+        } else if (player[p].posPlayer >= 18 && player[p].posPlayer <= 23) {
             h = 0.49f;
-        } else if (player[p][1] == 0) {
+        } else if (player[p].posPlayer == 0) {
             h = 0.49f;
-        } else if (player[p][1] == 1 || player[p][1] == 17) {
+        } else if (player[p].posPlayer == 1 || player[p].posPlayer == 17) {
             h = 0.40f;
-        } else if (player[p][1] == 2 || player[p][1] == 16) {
+        } else if (player[p].posPlayer == 2 || player[p].posPlayer == 16) {
             h = 0.33f;
-        } else if (player[p][1] == 3 || player[p][1] == 15) {
+        } else if (player[p].posPlayer == 3 || player[p].posPlayer == 15) {
             h = 0.26f;
-        } else if (player[p][1] == 4 || player[p][1] == 14) {
+        } else if (player[p].posPlayer == 4 || player[p].posPlayer == 14) {
             h = 0.19f;
-        } else if (player[p][1] == 5 || player[p][1] == 13) {
+        } else if (player[p].posPlayer == 5 || player[p].posPlayer == 13) {
             h = 0.12f;
         }
         return h;
     }
-
     //create
     public void create() {
         for (int i = 0; i < 24; i++) {
@@ -270,100 +268,15 @@ public class PlayActivity extends AppCompatActivity {
             player[i].alive = true; //death
         }
     }
-
-    //dive
-    public void dive() {
+    //roll
+    public void roll() {
 
     }
-
-    //draw
-    public void draw() {
-        // draw money
-        for (int i = 0; i < 24; i++) {
-            if (i == 0 || i == 12 || i == 6 || i == 18) {
-                System.out.print("|0000000|");
-            } else {
-                System.out.print("|--" + map[i][0] + "--|");
-            }
-        }
-        System.out.println();
-        // draw player occupy
-        for (int i = 0; i < 24; i++) {
-            if (i == 0 || i == 12 || i == 6 || i == 18) {
-                System.out.print("|0000000|");
-            } else {
-                System.out.print("|---" + map[i][1] + "---|");
-            }
-        }
-        System.out.println();
-        // draw player building
-        for (int i = 0; i < 24; i++) {
-            if (i == 0 || i == 12 || i == 6 || i == 18) {
-                System.out.print("|0000000|");
-            } else {
-                System.out.print("|---" + map[i][2] + "---|");
-            }
-        }
-        System.out.println();
-        // draw pos player 01
-        if (player[0][2] == 1) {
-            for (int i = 0; i < 24; i++) {
-                if (i == player[0][1]) {
-                    System.out.print("|---1---|");
-                } else {
-                    System.out.print("|-------|");
-                }
-            }
-            System.out.println();
-        }
-        // draw pos player 02
-        if (player[1][2] == 1) {
-            for (int i = 0; i < 24; i++) {
-                if (i == player[1][1]) {
-                    System.out.print("|---2---|");
-                } else {
-                    System.out.print("|-------|");
-                }
-            }
-            System.out.println();
-        }// draw pos player 03
-        if (player[2][2] == 1) {
-            for (int i = 0; i < 24; i++) {
-                if (i == player[2][1]) {
-                    System.out.print("|---3---|");
-                } else {
-                    System.out.print("|-------|");
-                }
-            }
-            System.out.println();
-        }// draw pos player 04
-        if (player[3][2] == 1) {
-            for (int i = 0; i < 24; i++) {
-                if (i == player[3][1]) {
-                    System.out.print("|---4---|");
-                } else {
-                    System.out.print("|-------|");
-                }
-            }
-            System.out.println();
-        }
-
-
-        System.out.print("Player 1: " + player[0][0]);
-        System.out.print(" | Player 2: " + player[1][0]);
-        System.out.print(" | Player 3: " + player[2][0]);
-        System.out.print(" | Player 4: " + player[3][0]);
-        System.out.println();
-
-        System.out.print("Turn: Player " + (turn + 1));
-        System.out.println(" | Dice: " + dice);
-    }
-
     //check death
-    void checkDeath() {
+    void checkAlive() {
         int countDeath = 0;
         for (int i = 0; i < 4; i++) {
-            if (player[i][2] == 0) {
+            if (player[i].alive == false) {
                 countDeath++;
             }
         }
@@ -371,47 +284,35 @@ public class PlayActivity extends AppCompatActivity {
             endGame = true;
         }
         for (int i = 0; i < 4; i++) {
-            if (player[i][0] <= 0) {
-                player[i][2] = 0;
+            if (player[i].money <= 0) {
+                player[i].alive = false;
             }
         }
     }
-
-    //logic
-    public void play() {
-        dice = rd.nextInt(6) + 1;
-        dice += rd.nextInt(6) + 1;
-        player[turn][1] += dice;
-        if (player[turn][1] >= 20) {
-            player[turn][0] += 500;
-            player[turn][1] -= 20;
-        }
-    }
-
-    public void choosePlayer() {
-        if (player[turn][1] != 0 && player[turn][1] != 12 && player[turn][1] != 18 && player[turn][1] != 6) {
-            if (map[player[turn][1]][1] == 0) {
-                System.out.println("You choose: 1.Occupy  2.Ignore");
-                choose = sc.nextInt();
-                if (choose == 1) {
-                    map[player[turn][1]][1] = turn + 1;
-                    player[turn][0] -= map[player[turn][1]][0];
-                }
-            } else if (map[player[turn][1]][1] == turn + 1) {
-                System.out.println("You choose: 1.Building  2.Ignore");
-                choose = sc.nextInt();
-                if (choose == 1) {
-                    player[turn][0] -= map[player[turn][1]][0];
-                    map[player[turn][1]][2] += 1;
-                }
-            } else {
-                int lost = (map[player[turn][1]][0] + map[player[turn][1]][0] * map[player[turn][1]][2]) / 5;
-                System.out.println("Player " + (turn + 1) + " lost: " + lost);
-                System.out.println("Player " + (map[player[turn][1]][1]) + " raise: " + lost);
-
-                player[turn][0] = player[turn][0] - lost;
-                player[map[player[turn][1]][1] - 1][0] = player[map[player[turn][1]][1] - 1][0] + lost;
-            }
-        }
-    }
+//    public void choosePlayer() {
+//        if (player[turn][1] != 0 && player[turn][1] != 12 && player[turn][1] != 18 && player[turn][1] != 6) {
+//            if (map[player[turn][1]][1] == 0) {
+//                System.out.println("You choose: 1.Occupy  2.Ignore");
+//                choose = sc.nextInt();
+//                if (choose == 1) {
+//                    map[player[turn][1]][1] = turn + 1;
+//                    player[turn][0] -= map[player[turn][1]][0];
+//                }
+//            } else if (map[player[turn][1]][1] == turn + 1) {
+//                System.out.println("You choose: 1.Building  2.Ignore");
+//                choose = sc.nextInt();
+//                if (choose == 1) {
+//                    player[turn][0] -= map[player[turn][1]][0];
+//                    map[player[turn][1]][2] += 1;
+//                }
+//            } else {
+//                int lost = (map[player[turn][1]][0] + map[player[turn][1]][0] * map[player[turn][1]][2]) / 5;
+//                System.out.println("Player " + (turn + 1) + " lost: " + lost);
+//                System.out.println("Player " + (map[player[turn][1]][1]) + " raise: " + lost);
+//
+//                player[turn][0] = player[turn][0] - lost;
+//                player[map[player[turn][1]][1] - 1][0] = player[map[player[turn][1]][1] - 1][0] + lost;
+//            }
+//        }
+//    }
 }
