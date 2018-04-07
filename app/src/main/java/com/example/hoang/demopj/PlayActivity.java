@@ -14,6 +14,7 @@ import java.util.Scanner;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
 public class PlayActivity extends AppCompatActivity {
     Random rd = new Random();
     Scanner sc = new Scanner(System.in);
