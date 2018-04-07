@@ -227,32 +227,29 @@ public class PlayActivity extends AppCompatActivity {
 
     //setTurn
     public void setTurn() {
-        turn += 1;
-        if (turn == 5) {
-            Log.d(TAG, "wtf?");
-            turn = 1;
-        }
-        if (turn == 1) {
+        if (turn == 0) {
             ivArrowPl1.setVisibility(View.VISIBLE);
             ivArrowPl2.setVisibility(View.GONE);
             ivArrowPl3.setVisibility(View.GONE);
             ivArrowPl4.setVisibility(View.GONE);
-        } else if (turn == 2){
+        } else if (turn == 1){
             ivArrowPl1.setVisibility(View.GONE);
             ivArrowPl2.setVisibility(View.VISIBLE);
             ivArrowPl3.setVisibility(View.GONE);
             ivArrowPl4.setVisibility(View.GONE);
-        } else if (turn == 3){
+        } else if (turn == 2){
             ivArrowPl1.setVisibility(View.GONE);
             ivArrowPl2.setVisibility(View.GONE);
             ivArrowPl3.setVisibility(View.VISIBLE);
             ivArrowPl4.setVisibility(View.GONE);
-        } else if (turn == 4){
+        } else if (turn == 3){
             ivArrowPl1.setVisibility(View.GONE);
             ivArrowPl2.setVisibility(View.GONE);
             ivArrowPl3.setVisibility(View.GONE);
             ivArrowPl4.setVisibility(View.VISIBLE);
+            turn = -1;
         }
+        turn++;
     }
 
     @OnClick(R.id.bt_roll)
