@@ -950,7 +950,59 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toEndOf="@+id/iv_dice_1st"
         app:layout_constraintTop_toTopOf="@+id/gl_v_05"
-        app:srcCompat="@drawable/diceStart" />
+        app:srcCompat="@drawable/dicestart" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_44"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_29"
+        app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_59"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+        app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_74"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout4"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_59"
+        app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_v_89"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout5"
+        app:layout_constraintTop_toTopOf="@+id/gl_v_74"
+        app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
 
 
 </android.support.constraint.ConstraintLayout>
