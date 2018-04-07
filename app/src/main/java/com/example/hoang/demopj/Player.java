@@ -5,9 +5,9 @@ package com.example.hoang.demopj;
  */
 
 public class Player {
-    int money;
-    int posPlayer;
-    boolean alive;
+    public int money;
+    public int posPlayer;
+    public boolean alive;
 
     public Player(int money, int posPlayer, boolean alive){
         this.alive = alive;

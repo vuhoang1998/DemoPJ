@@ -26,6 +26,7 @@ public class PlayActivity extends AppCompatActivity {
     int choose;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -156,12 +157,15 @@ public class PlayActivity extends AppCompatActivity {
 //        }
 //    }
 
-    public void onClick(View view) {
+    public void onClickHouse(View view) {
         for (House house: House.houses) {
             if (house.houseId == view.getId()) {
                 showInfo(house);
             }
         }
+    }
+    public void onClickRandom(View view) {
+
     }
 
     private void showInfo(House house) {
@@ -184,7 +188,8 @@ public class PlayActivity extends AppCompatActivity {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-
     }
+
+
 
 }

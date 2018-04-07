@@ -9,11 +9,11 @@ import java.util.Random;
  */
 
 public class House {
-    int posHouse;
-    int price;
-    int playerOccupy;
-    int lvHouse;
-    int houseId;
+    public int posHouse;
+    public int price;
+    public int playerOccupy;
+    public int lvHouse;
+    public int houseId;
 
     private Random random = new Random();
 
