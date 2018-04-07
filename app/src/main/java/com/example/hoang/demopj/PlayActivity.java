@@ -200,18 +200,18 @@ public class PlayActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        create();
-        while (!endGame) {
-            roll();
-//            draw();
-//            choosePlayer();
-//            checkDeath();
-//            turn++;
-//            if (turn==4){
-//                turn = 0;
-//            }
-            endGame = true;
-        }
+       // create();
+//        while (!endGame) {
+//            roll();
+////            draw();
+////            choosePlayer();
+////            checkDeath();
+////            turn++;
+////            if (turn==4){
+////                turn = 0;
+////            }
+//            endGame = true;
+//        }
     }
     //getPosV
     public float getPosV(int p) {
