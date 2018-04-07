@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hoang.demopj.estate.Block;
@@ -64,6 +65,7 @@ public class PlayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_play);
         ButterKnife.bind(this);
         create();
+        setupMapText();
     }
 
     @Override
@@ -197,6 +199,16 @@ public class PlayActivity extends AppCompatActivity {
             if (players[i].money <= 0) {
                 players[i].alive = false;
             }
+        }
+    }
+
+    //todo if have anything related to text put in here
+    private void setupMapText() {
+        for (int i=0; i < 16; i++) {
+            House currentHouse = (House) Block.blocks[i];
+            TextView textView = findViewById(currentHouse.houseId);
+            String title = currentHouse.name + "\n" + Integer.toString(currentHouse.price);
+            textView.setText(title);
         }
     }
 //    public void choosePlayer() {

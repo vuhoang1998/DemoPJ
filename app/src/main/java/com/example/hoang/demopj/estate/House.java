@@ -9,7 +9,7 @@ import java.util.Random;
  */
 
 public class House extends Block {
-    String name;
+    public String name;
     public int price;
     public int playerOccupy;
     public int lvHouse;
