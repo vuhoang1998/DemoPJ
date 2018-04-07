@@ -6,6 +6,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.constraint.Guideline;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,6 +26,7 @@ import static com.example.hoang.demopj.Player.players;
 
 
 public class PlayActivity extends AppCompatActivity {
+    String TAG = "lalaland";
     Random random = new Random();
     boolean endGame = false;
     int turn = 0;
@@ -141,10 +143,10 @@ public class PlayActivity extends AppCompatActivity {
                 ((House) block).price = (random.nextInt(5) + 5) * 100;
             }
         }
-        ivArrowPl1.setVisibility(View.VISIBLE);
-        ivArrowPl2.setVisibility(View.VISIBLE);
-        ivArrowPl3.setVisibility(View.VISIBLE);
-        ivArrowPl4.setVisibility(View.VISIBLE);
+        ivArrowPl1.setVisibility(View.GONE);
+        ivArrowPl2.setVisibility(View.GONE);
+        ivArrowPl3.setVisibility(View.GONE);
+        ivArrowPl4.setVisibility(View.GONE);
 
     }
 
@@ -185,12 +187,39 @@ public class PlayActivity extends AppCompatActivity {
 
         if (turn == 1) {
             ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer01.getLayoutParams();
-            paramsH.guidePercent = getPosH(1);
+            paramsH.guidePercent = getPosH(0);
             glHPlayer01.setLayoutParams(paramsH);
 
             ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer01.getLayoutParams();
-            paramsV.guidePercent = getPosV(1);
+            paramsV.guidePercent = getPosV(0);
             glVPlayer01.setLayoutParams(paramsV);
+        }
+        if (turn == 2) {
+            ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer02.getLayoutParams();
+            paramsH.guidePercent = getPosH(1)+0.03f;
+            glHPlayer02.setLayoutParams(paramsH);
+
+            ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer02.getLayoutParams();
+            paramsV.guidePercent = getPosV(1);
+            glVPlayer02.setLayoutParams(paramsV);
+        }
+        if (turn == 3) {
+            ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer03.getLayoutParams();
+            paramsH.guidePercent = getPosH(2);
+            glHPlayer03.setLayoutParams(paramsH);
+
+            ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer03.getLayoutParams();
+            paramsV.guidePercent = getPosV(2)+0.06f;
+            glVPlayer03.setLayoutParams(paramsV);
+        }
+        if (turn == 4) {
+            ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer04.getLayoutParams();
+            paramsH.guidePercent = getPosH(3)+0.03f;
+            glHPlayer04.setLayoutParams(paramsH);
+
+            ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer04.getLayoutParams();
+            paramsV.guidePercent = getPosV(3)+0.06f;
+            glVPlayer04.setLayoutParams(paramsV);
         }
     }
 
@@ -198,28 +227,29 @@ public class PlayActivity extends AppCompatActivity {
     public void setTurn() {
         turn += 1;
         if (turn == 5) {
+            Log.d(TAG, "wtf?");
             turn = 1;
         }
         if (turn == 1) {
-            ivArrowPl1.setVisibility(View.GONE);
-            ivArrowPl2.setVisibility(View.VISIBLE);
-            ivArrowPl3.setVisibility(View.VISIBLE);
-            ivArrowPl4.setVisibility(View.VISIBLE);
-        } else if (turn == 2){
             ivArrowPl1.setVisibility(View.VISIBLE);
             ivArrowPl2.setVisibility(View.GONE);
-            ivArrowPl3.setVisibility(View.VISIBLE);
-            ivArrowPl4.setVisibility(View.VISIBLE);
-        } else if (turn == 3){
-            ivArrowPl1.setVisibility(View.VISIBLE);
+            ivArrowPl3.setVisibility(View.GONE);
+            ivArrowPl4.setVisibility(View.GONE);
+        } else if (turn == 2){
+            ivArrowPl1.setVisibility(View.GONE);
             ivArrowPl2.setVisibility(View.VISIBLE);
             ivArrowPl3.setVisibility(View.GONE);
-            ivArrowPl4.setVisibility(View.VISIBLE);
-        } else if (turn == 4){
-            ivArrowPl1.setVisibility(View.VISIBLE);
-            ivArrowPl2.setVisibility(View.VISIBLE);
+            ivArrowPl4.setVisibility(View.GONE);
+        } else if (turn == 3){
+            ivArrowPl1.setVisibility(View.GONE);
+            ivArrowPl2.setVisibility(View.GONE);
             ivArrowPl3.setVisibility(View.VISIBLE);
             ivArrowPl4.setVisibility(View.GONE);
+        } else if (turn == 4){
+            ivArrowPl1.setVisibility(View.GONE);
+            ivArrowPl2.setVisibility(View.GONE);
+            ivArrowPl3.setVisibility(View.GONE);
+            ivArrowPl4.setVisibility(View.VISIBLE);
         }
     }
 
