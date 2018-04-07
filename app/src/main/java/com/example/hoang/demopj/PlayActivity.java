@@ -34,6 +34,8 @@ public class PlayActivity extends AppCompatActivity {
     int dice2 = 0;
     int dice = 0;
     int choose;
+    float v = 0.0f;
+    float h = 0.0f;
 
     @BindView(R.id.iv_dice_1st)
     ImageView ivDice1st;
@@ -92,7 +94,7 @@ public class PlayActivity extends AppCompatActivity {
 
     //getPosV
     public float getPosV(int p) {
-        float v = 0.0f;
+
         if (players[p].posPlayer >= 0 && players[p].posPlayer <= 6) {
             v = 0.83f;
         } else if (players[p].posPlayer >= 12 && players[p].posPlayer <= 18) {
@@ -113,7 +115,7 @@ public class PlayActivity extends AppCompatActivity {
 
     //getPosH
     public float getPosH(int p) {
-        float h = 0.0f;
+
         if (players[p].posPlayer >= 6 && players[p].posPlayer <= 12) {
             h = 0.03f;
         } else if (players[p].posPlayer >= 18 && players[p].posPlayer <= 23) {
@@ -182,6 +184,9 @@ public class PlayActivity extends AppCompatActivity {
 
         players[turn].posPlayer += dice1;
         players[turn].posPlayer += dice2;
+        if (players[turn].posPlayer>=24){
+            players[turn].posPlayer-=24;
+        }
 
         if (turn == 0) {
             ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer01.getLayoutParams();
