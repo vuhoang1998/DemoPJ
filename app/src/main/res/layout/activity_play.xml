@@ -950,7 +950,7 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toEndOf="@+id/iv_dice_1st"
         app:layout_constraintTop_toTopOf="@+id/gl_v_05"
-        app:srcCompat="@drawable/diceStart" />
+        app:srcCompat="@drawable/dicestart" />
 
 
 </android.support.constraint.ConstraintLayout>

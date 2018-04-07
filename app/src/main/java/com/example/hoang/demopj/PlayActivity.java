@@ -23,17 +23,17 @@ public class PlayActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        create();
-        while (!endGame){
-            play();
-            draw();
-            choosePlayer();
-            checkDeath();
-            turn++;
-            if (turn==4){
-                turn = 0;
-            }
-        }
+//        create();
+//        while (!endGame){
+//            play();
+//            draw();
+//            choosePlayer();
+//            checkDeath();
+//            turn++;
+//            if (turn==4){
+//                turn = 0;
+//            }
+//        }
     }
     //create
     public static void create(){
