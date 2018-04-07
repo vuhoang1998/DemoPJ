@@ -66,7 +66,6 @@ public class PlayActivity extends AppCompatActivity {
     @BindView(R.id.iv_arrow_pl4)
     ImageView ivArrowPl4;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -181,11 +180,10 @@ public class PlayActivity extends AppCompatActivity {
             ivDice2nd.setImageResource(R.drawable.dicesix);
         }
 
-
         players[turn].posPlayer += dice1;
         players[turn].posPlayer += dice2;
 
-        if (turn == 1) {
+        if (turn == 0) {
             ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer01.getLayoutParams();
             paramsH.guidePercent = getPosH(0);
             glHPlayer01.setLayoutParams(paramsH);
@@ -194,7 +192,7 @@ public class PlayActivity extends AppCompatActivity {
             paramsV.guidePercent = getPosV(0);
             glVPlayer01.setLayoutParams(paramsV);
         }
-        if (turn == 2) {
+        if (turn == 1) {
             ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer02.getLayoutParams();
             paramsH.guidePercent = getPosH(1)+0.03f;
             glHPlayer02.setLayoutParams(paramsH);
@@ -203,7 +201,7 @@ public class PlayActivity extends AppCompatActivity {
             paramsV.guidePercent = getPosV(1);
             glVPlayer02.setLayoutParams(paramsV);
         }
-        if (turn == 3) {
+        if (turn == 2) {
             ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer03.getLayoutParams();
             paramsH.guidePercent = getPosH(2);
             glHPlayer03.setLayoutParams(paramsH);
@@ -212,7 +210,7 @@ public class PlayActivity extends AppCompatActivity {
             paramsV.guidePercent = getPosV(2)+0.06f;
             glVPlayer03.setLayoutParams(paramsV);
         }
-        if (turn == 4) {
+        if (turn == 3) {
             ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer04.getLayoutParams();
             paramsH.guidePercent = getPosH(3)+0.03f;
             glHPlayer04.setLayoutParams(paramsH);
@@ -225,27 +223,23 @@ public class PlayActivity extends AppCompatActivity {
 
     //setTurn
     public void setTurn() {
-        turn += 1;
-        if (turn == 5) {
-            Log.d(TAG, "wtf?");
-            turn = 1;
-        }
-        if (turn == 1) {
+
+        if (turn == 0) {
             ivArrowPl1.setVisibility(View.VISIBLE);
             ivArrowPl2.setVisibility(View.GONE);
             ivArrowPl3.setVisibility(View.GONE);
             ivArrowPl4.setVisibility(View.GONE);
-        } else if (turn == 2){
+        } else if (turn == 1){
             ivArrowPl1.setVisibility(View.GONE);
             ivArrowPl2.setVisibility(View.VISIBLE);
             ivArrowPl3.setVisibility(View.GONE);
             ivArrowPl4.setVisibility(View.GONE);
-        } else if (turn == 3){
+        } else if (turn == 2){
             ivArrowPl1.setVisibility(View.GONE);
             ivArrowPl2.setVisibility(View.GONE);
             ivArrowPl3.setVisibility(View.VISIBLE);
             ivArrowPl4.setVisibility(View.GONE);
-        } else if (turn == 4){
+        } else if (turn == 3){
             ivArrowPl1.setVisibility(View.GONE);
             ivArrowPl2.setVisibility(View.GONE);
             ivArrowPl3.setVisibility(View.GONE);
@@ -255,8 +249,13 @@ public class PlayActivity extends AppCompatActivity {
 
     @OnClick(R.id.bt_roll)
     public void onViewClicked() {
+        if (turn == 4) {
+            Log.d(TAG, "wtf?");
+            turn = 0;
+        }
         setTurn();
         roll();
+        turn += 1;
     }
 
     //check death
