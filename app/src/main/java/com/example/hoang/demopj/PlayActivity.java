@@ -1,12 +1,21 @@
 package com.example.hoang.demopj;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
 import java.util.Random;
 import java.util.Scanner;
 
+import butterknife.OnClick;
+
 public class PlayActivity extends AppCompatActivity {
-    Random rd = new Random();
+    Random random = new Random();
     Scanner sc = new Scanner(System.in);
     int [][]map = new int[24][3];
     int [][]player = new int[4][3];
@@ -82,7 +91,7 @@ public class PlayActivity extends AppCompatActivity {
     //create
     public void create(){
         for (int i = 0 ; i < 24 ; i++){
-            map[i][0] = (rd.nextInt(5)+5)*100; // money
+            map[i][0] = (random.nextInt(5)+5)*100; // money
             map[i][1] = 0; // player occupy
             map[i][2] = 0; // player building
         }
@@ -92,6 +101,7 @@ public class PlayActivity extends AppCompatActivity {
             player[i][2] = 1; //death
         }
     }
+
     //draw
     public void draw(){
         // draw money
@@ -194,8 +204,8 @@ public class PlayActivity extends AppCompatActivity {
     //logic
     public void play(){
         dice = 0;
-        dice = rd.nextInt(6)+1;
-        dice += rd.nextInt(6)+1;
+        dice = random.nextInt(6)+1;
+        dice += random.nextInt(6)+1;
         player[turn][1] += dice;
         if (player[turn][1]>=20){
             player[turn][0] += 500;
@@ -228,5 +238,29 @@ public class PlayActivity extends AppCompatActivity {
                 player[map[player[turn][1]][1]-1][0] = player[map[player[turn][1]][1]-1][0] + lost;
             }
         }
+    }
+
+
+    public void showInfo(int position) {
+        Toast.makeText(this, "Nani", Toast.LENGTH_SHORT).show();
+        //todo change this to roll the dice and this is show info
+        AlertDialog.Builder builder = new AlertDialog.Builder(PlayActivity.this);
+        builder.setTitle("GameConsole");
+        builder.setMessage("You want to delete this game ?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(PlayActivity.this, "No thanks", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }
