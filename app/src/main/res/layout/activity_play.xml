@@ -354,6 +354,7 @@
         android:layout_height="0dp"
         android:background="@drawable/border08"
         android:gravity="center"
+        android:textColor="@"
         android:text="Cà Mau\n2000"
         android:textSize="8sp"
         android:textStyle="bold"
