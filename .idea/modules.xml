@@ -3,10 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DemoPJ.iml" filepath="$PROJECT_DIR$/DemoPJ.iml" />
-      <module fileurl="file://C:\Users\Owner\Desktop\DemoPJ\DemoPJ.iml" filepath="C:\Users\Owner\Desktop\DemoPJ\DemoPJ.iml" />
-      <module fileurl="file://D:\AndroidStudioProjects\DemoPJ\.idea\DemoPJ.iml" filepath="D:\AndroidStudioProjects\DemoPJ\.idea\DemoPJ.iml" />
+      <module fileurl="file://C:/Users/Owner/Desktop/DemoPJ/DemoPJ.iml" filepath="C:/Users/Owner/Desktop/DemoPJ/DemoPJ.iml" />
+      <module fileurl="file://D:/AndroidStudioProjects/DemoPJ/.idea/DemoPJ.iml" filepath="D:/AndroidStudioProjects/DemoPJ/.idea/DemoPJ.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Owner\Desktop\DemoPJ\app\app.iml" filepath="C:\Users\Owner\Desktop\DemoPJ\app\app.iml" />
+      <module fileurl="file://C:/Users/Owner/Desktop/DemoPJ/app/app.iml" filepath="C:/Users/Owner/Desktop/DemoPJ/app/app.iml" />
     </modules>
   </component>
 </project>

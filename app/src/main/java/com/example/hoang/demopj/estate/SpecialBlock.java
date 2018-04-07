@@ -1,16 +1,9 @@
 package com.example.hoang.demopj.estate;
 
-public class SpecialBlock {
-    int blockId;
-    int blockPos;
+import com.example.hoang.demopj.Player;
 
-    public SpecialBlock(int blockPos, int blockId) {
-        this.blockId = blockId;
-        this.blockPos = blockPos;
-    }
+public interface SpecialBlock {
 
-    public void doSpecial() {
+    void doSpecial(Player player);
 
-    }
-    
 }
