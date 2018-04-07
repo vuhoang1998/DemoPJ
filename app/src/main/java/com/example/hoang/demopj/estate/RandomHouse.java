@@ -6,7 +6,7 @@ public class RandomHouse implements SpecialBlock {
 
     @Override
     public void doSpecial(Player player) {
-
+        
     }
 
 }
