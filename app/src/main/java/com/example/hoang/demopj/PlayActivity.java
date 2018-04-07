@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hoang.demopj.estate.Block;
+import com.example.hoang.demopj.estate.ColorHouse;
 import com.example.hoang.demopj.estate.House;
 import com.example.hoang.demopj.estate.SpecialBlock;
 
@@ -69,6 +70,8 @@ public class PlayActivity extends AppCompatActivity {
     @BindView(R.id.iv_arrow_pl4)
     ImageView ivArrowPl4;
 
+    TextView []tvColor = new TextView[24];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +79,7 @@ public class PlayActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         create();
         setupText();
+        setTvColor();
     }
 
     @Override
@@ -92,6 +96,26 @@ public class PlayActivity extends AppCompatActivity {
 ////            }
             endGame = true;
         }
+    }
+    //set find by ID color
+    public void setTvColor(){
+        tvColor[1]=findViewById(R.id.tv_color_01);
+        tvColor[2]=findViewById(R.id.tv_color_02);
+        tvColor[4]=findViewById(R.id.tv_color_04);
+        tvColor[5]=findViewById(R.id.tv_color_05);
+        tvColor[7]=findViewById(R.id.tv_color_07);
+        tvColor[8]=findViewById(R.id.tv_color_08);
+        tvColor[10]=findViewById(R.id.tv_color_10);
+        tvColor[11]=findViewById(R.id.tv_color_11);
+        tvColor[13]=findViewById(R.id.tv_color_13);
+        tvColor[14]=findViewById(R.id.tv_color_14);
+        tvColor[16]=findViewById(R.id.tv_color_16);
+        tvColor[17]=findViewById(R.id.tv_color_17);
+        tvColor[19]=findViewById(R.id.tv_color_19);
+        tvColor[20]=findViewById(R.id.tv_color_20);
+        tvColor[22]=findViewById(R.id.tv_color_22);
+        tvColor[23]=findViewById(R.id.tv_color_23);
+        tvColor[0]=null;
     }
 
     //getPosV
@@ -186,8 +210,8 @@ public class PlayActivity extends AppCompatActivity {
 
         players[turn].posPlayer += dice1;
         players[turn].posPlayer += dice2;
-        if (players[turn].posPlayer>=24){
-            players[turn].posPlayer-=24;
+        if (players[turn].posPlayer >= 24) {
+            players[turn].posPlayer -= 24;
         }
 
         if (turn == 0) {
@@ -201,7 +225,7 @@ public class PlayActivity extends AppCompatActivity {
         }
         if (turn == 1) {
             ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer02.getLayoutParams();
-            paramsH.guidePercent = getPosH(1)+0.03f;
+            paramsH.guidePercent = getPosH(1) + 0.03f;
             glHPlayer02.setLayoutParams(paramsH);
 
             ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer02.getLayoutParams();
@@ -214,16 +238,16 @@ public class PlayActivity extends AppCompatActivity {
             glHPlayer03.setLayoutParams(paramsH);
 
             ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer03.getLayoutParams();
-            paramsV.guidePercent = getPosV(2)+0.06f;
+            paramsV.guidePercent = getPosV(2) + 0.06f;
             glVPlayer03.setLayoutParams(paramsV);
         }
         if (turn == 3) {
             ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer04.getLayoutParams();
-            paramsH.guidePercent = getPosH(3)+0.03f;
+            paramsH.guidePercent = getPosH(3) + 0.03f;
             glHPlayer04.setLayoutParams(paramsH);
 
             ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer04.getLayoutParams();
-            paramsV.guidePercent = getPosV(3)+0.06f;
+            paramsV.guidePercent = getPosV(3) + 0.06f;
             glVPlayer04.setLayoutParams(paramsV);
         }
     }
@@ -236,17 +260,17 @@ public class PlayActivity extends AppCompatActivity {
             ivArrowPl2.setVisibility(View.GONE);
             ivArrowPl3.setVisibility(View.GONE);
             ivArrowPl4.setVisibility(View.GONE);
-        } else if (turn == 1){
+        } else if (turn == 1) {
             ivArrowPl1.setVisibility(View.GONE);
             ivArrowPl2.setVisibility(View.VISIBLE);
             ivArrowPl3.setVisibility(View.GONE);
             ivArrowPl4.setVisibility(View.GONE);
-        } else if (turn == 2){
+        } else if (turn == 2) {
             ivArrowPl1.setVisibility(View.GONE);
             ivArrowPl2.setVisibility(View.GONE);
             ivArrowPl3.setVisibility(View.VISIBLE);
             ivArrowPl4.setVisibility(View.GONE);
-        } else if (turn == 3){
+        } else if (turn == 3) {
             ivArrowPl1.setVisibility(View.GONE);
             ivArrowPl2.setVisibility(View.GONE);
             ivArrowPl3.setVisibility(View.GONE);
@@ -255,20 +279,57 @@ public class PlayActivity extends AppCompatActivity {
     }
 
     //setBlock
-    public void setBlock(){
-        if (!(Block.blocks[players[turn].posPlayer] instanceof SpecialBlock)){
-            House currentHouse =  (House) Block.blocks[players[turn].posPlayer];
-            if (currentHouse.playerOccupy == 0){
-
+    public void setBlock() {
+        if (!(Block.blocks[players[turn].posPlayer] instanceof SpecialBlock)) {
+            House currentHouse = (House) Block.blocks[players[turn].posPlayer];
+            if (currentHouse.playerOccupy == 0) {
+                if (players[turn].money > currentHouse.price) {
+                    showDialogBuy();
+                }
             }
         }
     }
-    public void showDialogBuy(){
 
+    public void setColor(){
+        if (turn==0){
+            if (players[turn].posPlayer==1){
+                tvColor01.setBackgroundResource(R.color.player01);
+            }
+
+        }
+    }
+    public void showDialogBuy() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("GameConsole");
+        String message = " Do you want to buy this land? ";
+        builder.setMessage(message);
+        builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                House currentHouse1 = (House) Block.blocks[players[turn].posPlayer];
+                players[turn].money -= currentHouse1.price;
+                setColor();
+            }
+        });
+        builder.setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
+    //set color land
+    public void setColorLand(int posLand){
+        if (posLand==1){
+
+        }
+    }
     @OnClick(R.id.bt_roll)
     public void onViewClicked() {
+        checkAlive();
         if (turn == 4) {
             Log.d(TAG, "wtf?");
             turn = 0;
@@ -279,7 +340,7 @@ public class PlayActivity extends AppCompatActivity {
         turn += 1;
     }
 
-    //check death
+    //check alive
     void checkAlive() {
         int countDeath = 0;
         for (int i = 0; i < 4; i++) {
@@ -298,8 +359,8 @@ public class PlayActivity extends AppCompatActivity {
     }
 
     private void setupText() {
-        for (int i =0; i < 16; i++) {
-            House currentHouse =  (House) Block.blocks[i];
+        for (int i = 0; i < 16; i++) {
+            House currentHouse = (House) Block.blocks[i];
             TextView textView = findViewById(currentHouse.houseId);
             textView.setText(currentHouse.name + "\n" + Integer.toString(currentHouse.price));
         }
