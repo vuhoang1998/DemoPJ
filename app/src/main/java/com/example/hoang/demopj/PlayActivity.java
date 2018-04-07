@@ -7,8 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.hoang.demopj.estate.House;
+
 import java.util.Random;
-import java.util.Scanner;
 
 import butterknife.ButterKnife;
 

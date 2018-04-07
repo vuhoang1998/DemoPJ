@@ -1,4 +1,6 @@
-package com.example.hoang.demopj;
+package com.example.hoang.demopj.estate;
+
+import com.example.hoang.demopj.R;
 
 import java.util.Random;
 
