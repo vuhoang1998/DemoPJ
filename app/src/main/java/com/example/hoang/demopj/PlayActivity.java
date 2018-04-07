@@ -1,24 +1,17 @@
 package com.example.hoang.demopj;
 
 import android.os.Bundle;
-import android.support.constraint.Guideline;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.util.Random;
 import java.util.Scanner;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
 public class PlayActivity extends AppCompatActivity {
-    Random rd = new Random();
+    Random random = new Random();
     Scanner sc = new Scanner(System.in);
-    House[] house = new House[24];
     Player[] player = new Player[4];
 
     boolean endGame = false;
@@ -96,10 +89,8 @@ public class PlayActivity extends AppCompatActivity {
     }
     //create
     public void create() {
-        for (int i = 0; i < 24; i++) {
-            house[i].price = (rd.nextInt(5) + 5) * 100; // money
-            house[i].playerOccupy = 0; // player occupy
-            house[i].lvHouse = 0; // player building
+        for (House house: House.houses) {
+            house.price = (random.nextInt(5) + 5) * 100;
         }
         for (int i = 0; i < 4; i++) {
             player[i].money = 3000; //money

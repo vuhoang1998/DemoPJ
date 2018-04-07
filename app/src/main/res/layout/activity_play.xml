@@ -237,7 +237,7 @@
         app:layout_constraintTop_toBottomOf="@+id/gl_v_68" />
 
     <TextView
-        android:id="@+id/tv_06"
+        android:id="@+id/tv_house_06"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border_eff"
