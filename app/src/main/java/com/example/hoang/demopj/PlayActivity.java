@@ -254,6 +254,19 @@ public class PlayActivity extends AppCompatActivity {
         }
     }
 
+    //setBlock
+    public void setBlock(){
+        if (!(Block.blocks[players[turn].posPlayer] instanceof SpecialBlock)){
+            House currentHouse =  (House) Block.blocks[players[turn].posPlayer];
+            if (currentHouse.playerOccupy == 0){
+
+            }
+        }
+    }
+    public void showDialogBuy(){
+
+    }
+
     @OnClick(R.id.bt_roll)
     public void onViewClicked() {
         if (turn == 4) {
@@ -262,6 +275,7 @@ public class PlayActivity extends AppCompatActivity {
         }
         setTurn();
         roll();
+        setBlock();
         turn += 1;
     }
 
