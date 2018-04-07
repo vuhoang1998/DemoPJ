@@ -152,7 +152,7 @@
         app:layout_constraintGuide_percent="0.83" />
 
     <TextView
-        android:id="@+id/tv_special_03"
+        android:id="@+id/tv_"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/border_eff"
