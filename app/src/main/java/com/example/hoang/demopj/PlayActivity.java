@@ -202,7 +202,7 @@ public class PlayActivity extends AppCompatActivity {
         super.onStart();
         create();
         while (!endGame) {
-            play();
+            roll();
 //            draw();
 //            choosePlayer();
 //            checkDeath();
@@ -213,7 +213,6 @@ public class PlayActivity extends AppCompatActivity {
             endGame = true;
         }
     }
-
     //getPosV
     public float getPosV(int p) {
         float v = 0.0f;
@@ -234,7 +233,6 @@ public class PlayActivity extends AppCompatActivity {
         }
         return v;
     }
-
     //getPosH
     public float getPosH(int p) {
         float h = 0.0f;
@@ -257,7 +255,6 @@ public class PlayActivity extends AppCompatActivity {
         }
         return h;
     }
-
     //create
     public void create() {
         for (int i = 0; i < 24; i++) {
@@ -271,100 +268,15 @@ public class PlayActivity extends AppCompatActivity {
             player[i].alive = true; //death
         }
     }
-
-    //dive
-    public void dive() {
+    //roll
+    public void roll() {
 
     }
-
-    //draw
-    public void draw() {
-        // draw money
-        for (int i = 0; i < 24; i++) {
-            if (i == 0 || i == 12 || i == 6 || i == 18) {
-                System.out.print("|0000000|");
-            } else {
-                System.out.print("|--" + map[i][0] + "--|");
-            }
-        }
-        System.out.println();
-        // draw player occupy
-        for (int i = 0; i < 24; i++) {
-            if (i == 0 || i == 12 || i == 6 || i == 18) {
-                System.out.print("|0000000|");
-            } else {
-                System.out.print("|---" + map[i][1] + "---|");
-            }
-        }
-        System.out.println();
-        // draw player building
-        for (int i = 0; i < 24; i++) {
-            if (i == 0 || i == 12 || i == 6 || i == 18) {
-                System.out.print("|0000000|");
-            } else {
-                System.out.print("|---" + map[i][2] + "---|");
-            }
-        }
-        System.out.println();
-        // draw pos player 01
-        if (player[0][2] == 1) {
-            for (int i = 0; i < 24; i++) {
-                if (i == player[0][1]) {
-                    System.out.print("|---1---|");
-                } else {
-                    System.out.print("|-------|");
-                }
-            }
-            System.out.println();
-        }
-        // draw pos player 02
-        if (player[1][2] == 1) {
-            for (int i = 0; i < 24; i++) {
-                if (i == player[1][1]) {
-                    System.out.print("|---2---|");
-                } else {
-                    System.out.print("|-------|");
-                }
-            }
-            System.out.println();
-        }// draw pos player 03
-        if (player[2][2] == 1) {
-            for (int i = 0; i < 24; i++) {
-                if (i == player[2][1]) {
-                    System.out.print("|---3---|");
-                } else {
-                    System.out.print("|-------|");
-                }
-            }
-            System.out.println();
-        }// draw pos player 04
-        if (player[3][2] == 1) {
-            for (int i = 0; i < 24; i++) {
-                if (i == player[3][1]) {
-                    System.out.print("|---4---|");
-                } else {
-                    System.out.print("|-------|");
-                }
-            }
-            System.out.println();
-        }
-
-
-        System.out.print("Player 1: " + player[0][0]);
-        System.out.print(" | Player 2: " + player[1][0]);
-        System.out.print(" | Player 3: " + player[2][0]);
-        System.out.print(" | Player 4: " + player[3][0]);
-        System.out.println();
-
-        System.out.print("Turn: Player " + (turn + 1));
-        System.out.println(" | Dice: " + dice);
-    }
-
     //check death
-    void checkDeath() {
+    void checkAlive() {
         int countDeath = 0;
         for (int i = 0; i < 4; i++) {
-            if (player[i][2] == 0) {
+            if (player[i].alive == false) {
                 countDeath++;
             }
         }
@@ -372,47 +284,35 @@ public class PlayActivity extends AppCompatActivity {
             endGame = true;
         }
         for (int i = 0; i < 4; i++) {
-            if (player[i][0] <= 0) {
-                player[i][2] = 0;
+            if (player[i].money <= 0) {
+                player[i].alive = false;
             }
         }
     }
-
-    //logic
-    public void play() {
-        dice = rd.nextInt(6) + 1;
-        dice += rd.nextInt(6) + 1;
-        player[turn][1] += dice;
-        if (player[turn][1] >= 20) {
-            player[turn][0] += 500;
-            player[turn][1] -= 20;
-        }
-    }
-
-    public void choosePlayer() {
-        if (player[turn][1] != 0 && player[turn][1] != 12 && player[turn][1] != 18 && player[turn][1] != 6) {
-            if (map[player[turn][1]][1] == 0) {
-                System.out.println("You choose: 1.Occupy  2.Ignore");
-                choose = sc.nextInt();
-                if (choose == 1) {
-                    map[player[turn][1]][1] = turn + 1;
-                    player[turn][0] -= map[player[turn][1]][0];
-                }
-            } else if (map[player[turn][1]][1] == turn + 1) {
-                System.out.println("You choose: 1.Building  2.Ignore");
-                choose = sc.nextInt();
-                if (choose == 1) {
-                    player[turn][0] -= map[player[turn][1]][0];
-                    map[player[turn][1]][2] += 1;
-                }
-            } else {
-                int lost = (map[player[turn][1]][0] + map[player[turn][1]][0] * map[player[turn][1]][2]) / 5;
-                System.out.println("Player " + (turn + 1) + " lost: " + lost);
-                System.out.println("Player " + (map[player[turn][1]][1]) + " raise: " + lost);
-
-                player[turn][0] = player[turn][0] - lost;
-                player[map[player[turn][1]][1] - 1][0] = player[map[player[turn][1]][1] - 1][0] + lost;
-            }
-        }
-    }
+//    public void choosePlayer() {
+//        if (player[turn][1] != 0 && player[turn][1] != 12 && player[turn][1] != 18 && player[turn][1] != 6) {
+//            if (map[player[turn][1]][1] == 0) {
+//                System.out.println("You choose: 1.Occupy  2.Ignore");
+//                choose = sc.nextInt();
+//                if (choose == 1) {
+//                    map[player[turn][1]][1] = turn + 1;
+//                    player[turn][0] -= map[player[turn][1]][0];
+//                }
+//            } else if (map[player[turn][1]][1] == turn + 1) {
+//                System.out.println("You choose: 1.Building  2.Ignore");
+//                choose = sc.nextInt();
+//                if (choose == 1) {
+//                    player[turn][0] -= map[player[turn][1]][0];
+//                    map[player[turn][1]][2] += 1;
+//                }
+//            } else {
+//                int lost = (map[player[turn][1]][0] + map[player[turn][1]][0] * map[player[turn][1]][2]) / 5;
+//                System.out.println("Player " + (turn + 1) + " lost: " + lost);
+//                System.out.println("Player " + (map[player[turn][1]][1]) + " raise: " + lost);
+//
+//                player[turn][0] = player[turn][0] - lost;
+//                player[map[player[turn][1]][1] - 1][0] = player[map[player[turn][1]][1] - 1][0] + lost;
+//            }
+//        }
+//    }
 }
