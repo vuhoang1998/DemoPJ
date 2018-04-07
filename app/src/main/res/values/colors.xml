@@ -5,6 +5,8 @@
     <color name="colorAccent">#ff4081</color>
     <color name="colorChange">#6200EA</color>
     <color name="border_black">#FF000000</color>
+    <color name="colorPrice">#FFFFFF00</color>
+
     <color name="player01">#ffee00</color>
     <color name="player02">#55ff01</color>
     <color name="player03">#f20404</color>

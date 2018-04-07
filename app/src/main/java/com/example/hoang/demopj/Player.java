@@ -5,11 +5,11 @@ package com.example.hoang.demopj;
  */
 
 public class Player {
-    public static int money;
-    public static int posPlayer;
-    public static boolean isJail;
-    public static boolean alive;
-    public static int playerID;
+    int money;
+    int posPlayer;
+    boolean isJail;
+    boolean alive;
+    int playerID;
 
     public Player(int money, int posPlayer,boolean isJail, boolean alive, int playerID){
         this.alive = alive;

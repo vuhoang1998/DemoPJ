@@ -116,6 +116,13 @@ public class PlayActivity extends AppCompatActivity {
         tvColor[22]=findViewById(R.id.tv_color_22);
         tvColor[23]=findViewById(R.id.tv_color_23);
         tvColor[0]=null;
+        tvColor[3]=null;
+        tvColor[6]=null;
+        tvColor[9]=null;
+        tvColor[12]=null;
+        tvColor[15]=null;
+        tvColor[18]=null;
+        tvColor[21]=null;
     }
 
     //getPosV
@@ -291,11 +298,17 @@ public class PlayActivity extends AppCompatActivity {
     }
 
     public void setColor(){
-        if (turn==0){
-            if (players[turn].posPlayer==1){
-                tvColor01.setBackgroundResource(R.color.player01);
-            }
-
+        if (turn==0&&tvColor[players[turn].posPlayer]!=null){
+            tvColor[players[turn].posPlayer].setBackgroundResource(R.color.player01);
+        }
+        if (turn==1&&tvColor[players[turn].posPlayer]!=null){
+            tvColor[players[turn].posPlayer].setBackgroundResource(R.color.player02);
+        }
+        if (turn==2&&tvColor[players[turn].posPlayer]!=null){
+            tvColor[players[turn].posPlayer].setBackgroundResource(R.color.player03);
+        }
+        if (turn==3&&tvColor[players[turn].posPlayer]!=null){
+            tvColor[players[turn].posPlayer].setBackgroundResource(R.color.player04);
         }
     }
     public void showDialogBuy() {
@@ -308,7 +321,8 @@ public class PlayActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 House currentHouse1 = (House) Block.blocks[players[turn].posPlayer];
                 players[turn].money -= currentHouse1.price;
-                setColor();
+               // setColor();
+                tvColor[players[turn].posPlayer].setBackgroundResource(R.color.player01);
             }
         });
         builder.setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
@@ -319,13 +333,6 @@ public class PlayActivity extends AppCompatActivity {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-    }
-
-    //set color land
-    public void setColorLand(int posLand){
-        if (posLand==1){
-
-        }
     }
     @OnClick(R.id.bt_roll)
     public void onViewClicked() {
