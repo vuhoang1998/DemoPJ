@@ -1,7 +1,6 @@
 package com.example.hoang.demopj;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.Guideline;
@@ -56,6 +55,14 @@ public class PlayActivity extends AppCompatActivity {
     Guideline glVPlayer04;
     @BindView(R.id.bt_roll)
     Button btRoll;
+    @BindView(R.id.iv_arrow_pl1)
+    ImageView ivArrowPl1;
+    @BindView(R.id.iv_arrow_pl2)
+    ImageView ivArrowPl2;
+    @BindView(R.id.iv_arrow_pl3)
+    ImageView ivArrowPl3;
+    @BindView(R.id.iv_arrow_pl4)
+    ImageView ivArrowPl4;
 
 
     @Override
@@ -102,6 +109,7 @@ public class PlayActivity extends AppCompatActivity {
         }
         return v;
     }
+
     //getPosH
     public float getPosH(int p) {
         float h = 0.0f;
@@ -128,60 +136,99 @@ public class PlayActivity extends AppCompatActivity {
     //create
     public void create() {
         //create house price
-        for (Block block: Block.blocks) {
+        for (Block block : Block.blocks) {
             if (!(block instanceof SpecialBlock)) {
                 ((House) block).price = (random.nextInt(5) + 5) * 100;
             }
         }
+        ivArrowPl1.setVisibility(View.VISIBLE);
+        ivArrowPl2.setVisibility(View.VISIBLE);
+        ivArrowPl3.setVisibility(View.VISIBLE);
+        ivArrowPl4.setVisibility(View.VISIBLE);
+
     }
+
     //roll
     public void roll() {
         dice1 = random.nextInt(6) + 1;
         dice2 = random.nextInt(6) + 1;
-        if(dice1==1){
+        if (dice1 == 1) {
             ivDice1st.setImageResource(R.drawable.diceone);
-        } else if (dice1==2){
+        } else if (dice1 == 2) {
             ivDice1st.setImageResource(R.drawable.dicetwo);
-        } else if (dice1==3){
+        } else if (dice1 == 3) {
             ivDice1st.setImageResource(R.drawable.dicethree);
-        } else if (dice1==4){
+        } else if (dice1 == 4) {
             ivDice1st.setImageResource(R.drawable.dicefour);
-        } else if (dice1==5){
+        } else if (dice1 == 5) {
             ivDice1st.setImageResource(R.drawable.dicefive);
-        } else if (dice1==6){
+        } else if (dice1 == 6) {
             ivDice1st.setImageResource(R.drawable.dicesix);
         }
-        if(dice2==1){
+        if (dice2 == 1) {
             ivDice2nd.setImageResource(R.drawable.diceone);
-        } else if (dice2==2){
+        } else if (dice2 == 2) {
             ivDice2nd.setImageResource(R.drawable.dicetwo);
-        } else if (dice2==3){
+        } else if (dice2 == 3) {
             ivDice2nd.setImageResource(R.drawable.dicethree);
-        } else if (dice2==4){
+        } else if (dice2 == 4) {
             ivDice2nd.setImageResource(R.drawable.dicefour);
-        } else if (dice2==5){
+        } else if (dice2 == 5) {
             ivDice2nd.setImageResource(R.drawable.dicefive);
-        } else if (dice2==6){
+        } else if (dice2 == 6) {
             ivDice2nd.setImageResource(R.drawable.dicesix);
         }
 
-        
-        players[turn].posPlayer +=dice1;
-        players[turn].posPlayer +=dice2;
 
+        players[turn].posPlayer += dice1;
+        players[turn].posPlayer += dice2;
+
+        if (turn == 1) {
             ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer01.getLayoutParams();
-            paramsH.guidePercent = 0.5f;
+            paramsH.guidePercent = getPosH(1);
             glHPlayer01.setLayoutParams(paramsH);
 
             ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer01.getLayoutParams();
-            paramsV.guidePercent = 0.5f;
+            paramsV.guidePercent = getPosV(1);
             glVPlayer01.setLayoutParams(paramsV);
-
+        }
     }
+
+    //setTurn
+    public void setTurn() {
+        turn += 1;
+        if (turn == 5) {
+            turn = 1;
+        }
+        if (turn == 1) {
+            ivArrowPl1.setVisibility(View.GONE);
+            ivArrowPl2.setVisibility(View.VISIBLE);
+            ivArrowPl3.setVisibility(View.VISIBLE);
+            ivArrowPl4.setVisibility(View.VISIBLE);
+        } else if (turn == 2){
+            ivArrowPl1.setVisibility(View.VISIBLE);
+            ivArrowPl2.setVisibility(View.GONE);
+            ivArrowPl3.setVisibility(View.VISIBLE);
+            ivArrowPl4.setVisibility(View.VISIBLE);
+        } else if (turn == 3){
+            ivArrowPl1.setVisibility(View.VISIBLE);
+            ivArrowPl2.setVisibility(View.VISIBLE);
+            ivArrowPl3.setVisibility(View.GONE);
+            ivArrowPl4.setVisibility(View.VISIBLE);
+        } else if (turn == 4){
+            ivArrowPl1.setVisibility(View.VISIBLE);
+            ivArrowPl2.setVisibility(View.VISIBLE);
+            ivArrowPl3.setVisibility(View.VISIBLE);
+            ivArrowPl4.setVisibility(View.GONE);
+        }
+    }
+
     @OnClick(R.id.bt_roll)
     public void onViewClicked() {
+        setTurn();
         roll();
     }
+
     //check death
     void checkAlive() {
         int countDeath = 0;
@@ -227,8 +274,8 @@ public class PlayActivity extends AppCompatActivity {
 //    }
 
     public void onClickHouse(View view) {
-        for (Block block: Block.blocks) {
-            if (!(block instanceof SpecialBlock) ) {
+        for (Block block : Block.blocks) {
+            if (!(block instanceof SpecialBlock)) {
                 if (((House) block).houseId == view.getId()) {
                     showInfo((House) block);
                 }
