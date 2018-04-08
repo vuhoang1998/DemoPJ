@@ -417,7 +417,7 @@ public class PlayActivity extends AppCompatActivity {
 
             String message = "You lose "+lose+" for "+Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].name;
             Player.players[turn].money-=lose;
-            Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].money-=lose;
+            Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].money+=lose;
 
             builder.setMessage(message);
 
