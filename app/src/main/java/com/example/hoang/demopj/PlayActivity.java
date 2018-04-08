@@ -362,11 +362,14 @@ public class PlayActivity extends AppCompatActivity {
                 if (Player.players[turn].posPlayer!=0||Player.players[turn].posPlayer!=3||Player.players[turn].posPlayer!=6
                         ||Player.players[turn].posPlayer!=9||Player.players[turn].posPlayer!=12||Player.players[turn].posPlayer!=15
                         ||Player.players[turn].posPlayer!=18||Player.players[turn].posPlayer!=21) {
-                    Log.d(TAG, "???: "+turn);
+
                     Player.players[turn].money -= Block.blocks[Player.players[turn].posPlayer].price;
-                    Block.blocks[Player.players[turn].posPlayer].playerOccupy = turn + 1;
+
+                    Block.blocks[Player.players[turn].posPlayer].playerOccupy = turn ;
+                    Log.d(TAG, "huong a " + Block.blocks[Player.players[turn].posPlayer].playerOccupy);
 
                     setColor();
+
                     Log.d(TAG, "onClick: "+turn);
                 }
             }
@@ -397,7 +400,7 @@ public class PlayActivity extends AppCompatActivity {
                     Log.d(TAG, "???: "+turn);
                     Player.players[turn].money -= Block.blocks[Player.players[turn].posPlayer].price/2;
                     Block.blocks[Player.players[turn].posPlayer].lvHouse+=1;
-                    setColor();
+//                    setColor();
                     Log.d(TAG, "onClick: "+turn);
             }
         });
@@ -443,19 +446,19 @@ public class PlayActivity extends AppCompatActivity {
 
     //set color
     public void setColor(){
-        for (int k = 0 ; k <24 ; k ++){
-            if (Block.blocks[k].playerOccupy == 1){
-                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player01);
-            }
-            if (Block.blocks[k].playerOccupy == 2){
-                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player02);
-            }
-            if (Block.blocks[k].playerOccupy == 3){
-                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player03);
-            }
-            if (Block.blocks[k].playerOccupy == 4){
-                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player04);
-            }
+
+//            if (Block.blocks[k].playerOccupy == 0){
+////                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player01);
+////            }
+////            if (Block.blocks[k].playerOccupy == 1){
+////                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player02);
+////            }
+////            if (Block.blocks[k].playerOccupy == 2){
+////                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player03);
+////            }
+////            if (Block.blocks[k].playerOccupy == 3){
+////                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player04);
+////            }
         }
     }
     //check alive
