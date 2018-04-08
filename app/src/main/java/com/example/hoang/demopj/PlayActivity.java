@@ -579,8 +579,7 @@ public class PlayActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Lose money??");
         int lose = (Block.blocks[Player.players[turn].posPlayer].price
-                +Block.blocks[Player.players[turn].posPlayer].price * Block.blocks[Player.players[turn].posPlayer].lvHouse
-                *Block.blocks[Player.players[turn].posPlayer].lvHouse)/5;
+                +Block.blocks[Player.players[turn].posPlayer].price * Block.blocks[Player.players[turn].posPlayer].lvHouse * 3)/5;
 
             String message = "You lose "+lose+"$ for "+(String)Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy-1].name;
             Player.players[turn].money-=lose;
