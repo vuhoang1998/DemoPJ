@@ -9,11 +9,6 @@ import java.util.Random;
  */
 
 public class House extends Block {
-    public String name;
-    public int price;
-    public int playerOccupy;
-    public int lvHouse;
-    public int houseId;
 
     public House(String name,int mapPos, int price, int playerOccupy, int lvHouse, int houseId) {
         this.position = mapPos;

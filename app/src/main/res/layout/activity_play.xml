@@ -594,6 +594,10 @@
         app:layout_constraintTop_toTopOf="@+id/gl_v_56" />
 
     <TextView
+        android:id="@+id/tv_demo"
+        android:layout_width="5dp"
+        android:layout_height="5dp"/>
+    <TextView
         android:id="@+id/tv_color_23"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -738,7 +742,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_59"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/gl_h_65"
         app:layout_constraintTop_toBottomOf="@+id/gl_v_44"
         app:layout_constraintVertical_bias="1.0">
@@ -924,12 +928,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:layout_marginStart="32dp"
         android:text="$10000"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_59"
         app:layout_constraintStart_toEndOf="@+id/iv_name_pl2"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name_2" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_2"
+        />
 
     <TextView
         android:id="@+id/textView8"

@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hoang.demopj.estate.Block;
-import com.example.hoang.demopj.estate.House;
 import com.example.hoang.demopj.estate.SpecialBlock;
 
 import java.util.Random;
@@ -22,8 +21,6 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static com.example.hoang.demopj.Player.players;
 
 
 public class PlayActivity extends AppCompatActivity {
@@ -83,6 +80,14 @@ public class PlayActivity extends AppCompatActivity {
     ImageView ivArrowPl4;
 
     TextView[] tvColor = new TextView[24];
+    @BindView(R.id.textView6)
+    TextView tvMoney01;
+    @BindView(R.id.textView7)
+    TextView tvMoney02;
+    @BindView(R.id.textView9)
+    TextView tvMoney03;
+    @BindView(R.id.textView8)
+    TextView tvMoney04;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,32 +133,32 @@ public class PlayActivity extends AppCompatActivity {
         tvColor[20] = findViewById(R.id.tv_color_20);
         tvColor[22] = findViewById(R.id.tv_color_22);
         tvColor[23] = findViewById(R.id.tv_color_23);
-        tvColor[0] = null;
-        tvColor[3] = null;
-        tvColor[6] = null;
-        tvColor[9] = null;
-        tvColor[12] = null;
-        tvColor[15] = null;
-        tvColor[18] = null;
-        tvColor[21] = null;
+        tvColor[0] = findViewById(R.id.tv_demo);
+        tvColor[3] = findViewById(R.id.tv_demo);
+        tvColor[6] = findViewById(R.id.tv_demo);
+        tvColor[9] = findViewById(R.id.tv_demo);
+        tvColor[12] = findViewById(R.id.tv_demo);
+        tvColor[15] = findViewById(R.id.tv_demo);
+        tvColor[18] = findViewById(R.id.tv_demo);
+        tvColor[21] = findViewById(R.id.tv_demo);
     }
 
     //getPosV
     public float getPosV(int p) {
 
-        if (players[p].posPlayer >= 0 && players[p].posPlayer <= 6) {
+        if (Player.players[p].posPlayer >= 0 && Player.players[p].posPlayer <= 6) {
             v = 0.83f;
-        } else if (players[p].posPlayer >= 12 && players[p].posPlayer <= 18) {
+        } else if (Player.players[p].posPlayer >= 12 && Player.players[p].posPlayer <= 18) {
             v = 0.05f;
-        } else if (players[p].posPlayer == 7 || players[p].posPlayer == 23) {
+        } else if (Player.players[p].posPlayer == 7 || Player.players[p].posPlayer == 23) {
             v = 0.68f;
-        } else if (players[p].posPlayer == 8 || players[p].posPlayer == 22) {
+        } else if (Player.players[p].posPlayer == 8 || Player.players[p].posPlayer == 22) {
             v = 0.56f;
-        } else if (players[p].posPlayer == 9 || players[p].posPlayer == 21) {
+        } else if (Player.players[p].posPlayer == 9 || Player.players[p].posPlayer == 21) {
             v = 0.44f;
-        } else if (players[p].posPlayer == 10 || players[p].posPlayer == 20) {
+        } else if (Player.players[p].posPlayer == 10 || Player.players[p].posPlayer == 20) {
             v = 0.32f;
-        } else if (players[p].posPlayer == 11 || players[p].posPlayer == 19) {
+        } else if (Player.players[p].posPlayer == 11 || Player.players[p].posPlayer == 19) {
             v = 0.20f;
         }
         return v;
@@ -162,21 +167,21 @@ public class PlayActivity extends AppCompatActivity {
     //getPosH
     public float getPosH(int p) {
 
-        if (players[p].posPlayer >= 6 && players[p].posPlayer <= 12) {
+        if (Player.players[p].posPlayer >= 6 && Player.players[p].posPlayer <= 12) {
             h = 0.03f;
-        } else if (players[p].posPlayer >= 18 && players[p].posPlayer <= 23) {
+        } else if (Player.players[p].posPlayer >= 18 && Player.players[p].posPlayer <= 23) {
             h = 0.49f;
-        } else if (players[p].posPlayer == 0) {
+        } else if (Player.players[p].posPlayer == 0) {
             h = 0.49f;
-        } else if (players[p].posPlayer == 1 || players[p].posPlayer == 17) {
+        } else if (Player.players[p].posPlayer == 1 || Player.players[p].posPlayer == 17) {
             h = 0.40f;
-        } else if (players[p].posPlayer == 2 || players[p].posPlayer == 16) {
+        } else if (Player.players[p].posPlayer == 2 || Player.players[p].posPlayer == 16) {
             h = 0.33f;
-        } else if (players[p].posPlayer == 3 || players[p].posPlayer == 15) {
+        } else if (Player.players[p].posPlayer == 3 || Player.players[p].posPlayer == 15) {
             h = 0.26f;
-        } else if (players[p].posPlayer == 4 || players[p].posPlayer == 14) {
+        } else if (Player.players[p].posPlayer == 4 || Player.players[p].posPlayer == 14) {
             h = 0.19f;
-        } else if (players[p].posPlayer == 5 || players[p].posPlayer == 13) {
+        } else if (Player.players[p].posPlayer == 5 || Player.players[p].posPlayer == 13) {
             h = 0.12f;
         }
         return h;
@@ -187,7 +192,7 @@ public class PlayActivity extends AppCompatActivity {
         //create house price
         for (Block block : Block.blocks) {
             if (!(block instanceof SpecialBlock)) {
-                ((House) block).price = (random.nextInt(5) + 5) * 100;
+                block.price = (random.nextInt(5) + 5) * 100;
             }
         }
         ivArrowPl1.setVisibility(View.GONE);
@@ -228,12 +233,10 @@ public class PlayActivity extends AppCompatActivity {
             ivDice2nd.setImageResource(R.drawable.dicesix);
         }
 
-        players[turn].posPlayer += dice1;
-        players[turn].posPlayer += dice2;
-        if (players[turn].posPlayer >= 24) {
-            players[turn].posPlayer -= 24;
-            //todo add check here
-
+        Player.players[turn].posPlayer += dice1;
+        Player.players[turn].posPlayer += dice2;
+        if (Player.players[turn].posPlayer >= 24) {
+            Player.players[turn].posPlayer -= 24;
         }
 
         if (turn == 0) {
@@ -311,9 +314,9 @@ public class PlayActivity extends AppCompatActivity {
 //        }
         for (Block block : Block.blocks) {
             if (!(block instanceof SpecialBlock)) {
-                if (((House) block).position == players[turn].posPlayer) {
-                    if (((House) block).playerOccupy == 0) {
-                        if (players[turn].money > ((House) block).price) {
+                if (block.position == Player.players[turn].posPlayer) {
+                    if (block.playerOccupy == 0) {
+                        if (Player.players[turn].money > block.price) {
                             showDialogBuy();
                         }
                     }
@@ -323,57 +326,60 @@ public class PlayActivity extends AppCompatActivity {
     }
 
     public void setColor() {
-        if (turn == 0 && tvColor[players[turn].posPlayer] != null) {
-            tvColor[players[turn].posPlayer].setBackgroundResource(R.color.player01);
-        }
-        if (turn == 1 && tvColor[players[turn].posPlayer] != null) {
-            tvColor[players[turn].posPlayer].setBackgroundResource(R.color.player02);
-        }
-        if (turn == 2 && tvColor[players[turn].posPlayer] != null) {
-            tvColor[players[turn].posPlayer].setBackgroundResource(R.color.player03);
-        }
-        if (turn == 3 && tvColor[players[turn].posPlayer] != null) {
-            tvColor[players[turn].posPlayer].setBackgroundResource(R.color.player04);
+        tvMoney01.setText("$"+Integer.toString(Player.players[0].money));
+        tvMoney02.setText("$"+Integer.toString(Player.players[1].money));
+        tvMoney03.setText("$"+Integer.toString(Player.players[2].money));
+        tvMoney04.setText("$"+Integer.toString(Player.players[3].money));
+        Log.d(TAG, "???");
+        for (int i = 0 ; i < 24 ; i++){
+            if (Block.blocks[i].playerOccupy == 1){
+                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player01);
+            }
+            if (Block.blocks[i].playerOccupy == 2){
+                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player02);
+            }
+            if (Block.blocks[i].playerOccupy == 3){
+                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player03);
+            }
+            if (Block.blocks[i].playerOccupy == 4){
+                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player04);
+            }
         }
     }
 
     public void showDialogBuy() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("GameConsole");
-
-        //if this block isn't affordable
-
-        Block currentBlock = Block.blocks[players[turn].posPlayer];
-        if (!(currentBlock instanceof SpecialBlock)) {
-
-
-            House currentHouse = (House) Block.blocks[players[turn].posPlayer];
-            String message = " Do you want to buy " + currentHouse.name + " ? ";
-            builder.setMessage(message);
-            builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    House currentHouse1 = (House) Block.blocks[players[turn].posPlayer];
-                    players[turn].money -= currentHouse1.price;
-                    currentHouse1.playerOccupy = turn;
-                    // setColor();
-                    tvColor[11].setBackgroundResource(R.color.player01);
-                    dialogInterface.dismiss();
+        builder.setTitle("Buy house??");
+        for (Block block : Block.blocks) {
+            if (!(block instanceof SpecialBlock)) {
+                if (block.position == Player.players[turn].posPlayer) {
+                    String message = " Do you want to buy " + block.name + " ? ";
+                    builder.setMessage(message);
                 }
-            });
-            builder.setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.dismiss();
-                }
-            });
-
-        } else {
-            //Special interact with the player
-            //todo build notification that match special
-            ((SpecialBlock) currentBlock).doSpecial(players[turn]);
+            }
         }
 
+        builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                for (Block block : Block.blocks) {
+                    if (!(block instanceof SpecialBlock)) {
+                        if (block.position == Player.players[turn].posPlayer) {
+                            Player.players[turn].money -= block.price;
+                            Block.blocks[block.position].playerOccupy = turn + 1;
+                            setColor();
+                            Log.d(TAG, "onClick: "+turn);
+                        }
+                    }
+                }
+            }
+        });
+        builder.setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
@@ -381,13 +387,14 @@ public class PlayActivity extends AppCompatActivity {
     @OnClick(R.id.bt_roll)
     public void onViewClicked() {
         checkAlive();
-        if (turn == 4) {
+        if (turn > 3) {
+            Log.d(TAG, "wtf?");
             turn = 0;
         }
         roll();
         setTurn();
-
         setBlock();
+        setColor();
         turn += 1;
     }
 
@@ -395,7 +402,7 @@ public class PlayActivity extends AppCompatActivity {
     void checkAlive() {
         int countDeath = 0;
         for (int i = 0; i < 4; i++) {
-            if (!players[i].alive) {
+            if (Player.players[i].alive == false) {
                 countDeath++;
             }
         }
@@ -403,22 +410,33 @@ public class PlayActivity extends AppCompatActivity {
             endGame = true;
         }
         for (int i = 0; i < 4; i++) {
-            if (players[i].money <= 0) {
-                players[i].alive = false;
+            if (Player.players[i].money <= 0) {
+                Player.players[i].alive = false;
             }
         }
     }
 
     private void setupText() {
-        for (int i = 0; i < 16; i++) {
-            House currentHouse = (House) Block.blocks[i];
-            TextView textView = findViewById(currentHouse.houseId);
-            textView.setText(currentHouse.name + "\n" + Integer.toString(currentHouse.price));
+//        for (int i = 0; i < 24; i++) {
+//            House currentHouse5 = Block.blocks[i];
+//            TextView textView5 = findViewById(currentHouse5.houseId);
+//            textView5.setText(currentHouse5.name + "\n" + Integer.toString(currentHouse5.price));
+//        }
+        for (Block block : Block.blocks) {
+            if (!(block instanceof SpecialBlock)) {
+                TextView textView5 = findViewById(block.houseId);
+                textView5.setText(block.name + "\n" + Integer.toString(block.price));
+            }
         }
+
         playerName1.setText(Player.players[0].name);
         playerName2.setText(Player.players[1].name);
         playerName3.setText(Player.players[2].name);
         playerName4.setText(Player.players[3].name);
+        tvMoney01.setText("$"+Integer.toString(Player.players[0].money));
+        tvMoney02.setText("$"+Integer.toString(Player.players[1].money));
+        tvMoney03.setText("$"+Integer.toString(Player.players[2].money));
+        tvMoney04.setText("$"+Integer.toString(Player.players[3].money));
 
     }
 //    public void choosePlayer() {
@@ -451,26 +469,32 @@ public class PlayActivity extends AppCompatActivity {
     public void onClickHouse(View view) {
         for (Block block : Block.blocks) {
             if (!(block instanceof SpecialBlock)) {
-                if (((House) block).houseId == view.getId()) {
-                    showInfo((House) block);
+                if (block.houseId == view.getId()) {
+                    showInfo(block);
                 }
             }
         }
     }
 
-    private void showInfo(House house) {
+    private void showInfo(Block block) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("GameConsole");
-        String message = "Buy cost: " + house.price + "\nupgrade fee: " + house.price / 2;
+        String message = "Buy cost: " + block.price + "\nupgrade fee: " + block.price / 2;
         builder.setMessage(message);
-        builder.setPositiveButton("I understood", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(PlayActivity.this, "Good", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PlayActivity.this, "purchased", Toast.LENGTH_SHORT).show();
                 dialogInterface.dismiss();
             }
         });
-
+        builder.setNegativeButton("Nein", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(PlayActivity.this, "Heil hilter", Toast.LENGTH_SHORT).show();
+                dialogInterface.dismiss();
+            }
+        });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }

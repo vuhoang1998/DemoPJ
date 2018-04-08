@@ -45,13 +45,10 @@ public class RegisterActivity extends AppCompatActivity {
     @OnClick(R.id.bt_next)
     public void onViewClicked() {
         Intent intent = new Intent(RegisterActivity.this, PlayActivity.class);
-        Player.players = new Player[]{
-                new Player(player1Name.getText().toString(),3000, 0, false, true, R.id.iv_pl_1),
-                new Player(player2Name.getText().toString(),3000, 0, false, true, R.id.iv_pl_2),
-                new Player(player3Name.getText().toString(),3000, 0, false, true, R.id.iv_pl_3),
-                new Player(player4Name.getText().toString(),3000, 0, false, true, R.id.iv_pl_4)
-
-    };
+        Player.players[0].name = player1Name.getText().toString();
+        Player.players[1].name = player2Name.getText().toString();
+        Player.players[2].name = player3Name.getText().toString();
+        Player.players[3].name = player4Name.getText().toString();
 
     startActivity(intent);
 }
