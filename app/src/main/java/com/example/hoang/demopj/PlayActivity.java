@@ -358,7 +358,6 @@ public class PlayActivity extends AppCompatActivity {
         builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Log.d(TAG, "wtf? turn: "+turn);
                 if (Player.players[turn].posPlayer!=0||Player.players[turn].posPlayer!=3||Player.players[turn].posPlayer!=6
                         ||Player.players[turn].posPlayer!=9||Player.players[turn].posPlayer!=12||Player.players[turn].posPlayer!=15
                         ||Player.players[turn].posPlayer!=18||Player.players[turn].posPlayer!=21) {
@@ -374,6 +373,7 @@ public class PlayActivity extends AppCompatActivity {
         builder.setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+
             }
         });
         AlertDialog alertDialog = builder.create();
@@ -382,9 +382,8 @@ public class PlayActivity extends AppCompatActivity {
 
     @OnClick(R.id.bt_roll)
     public void onViewClicked() {
-        turn += 1;
+        turn++ ;
         if (turn > 3) {
-            Log.d(TAG, "wtf?");
             turn = 0;
         }
         checkAlive();
