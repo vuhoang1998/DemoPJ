@@ -203,46 +203,6 @@ public class PlayActivity extends AppCompatActivity {
 
     }
 
-    //draw Player
-    public void drawPlayer(){
-        if (turn == 0) {
-            ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer01.getLayoutParams();
-            paramsH.guidePercent = getPosH(0);
-            glHPlayer01.setLayoutParams(paramsH);
-
-            ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer01.getLayoutParams();
-            paramsV.guidePercent = getPosV(0);
-            glVPlayer01.setLayoutParams(paramsV);
-        }
-        if (turn == 1) {
-            ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer02.getLayoutParams();
-            paramsH.guidePercent = getPosH(1) + 0.03f;
-            glHPlayer02.setLayoutParams(paramsH);
-
-            ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer02.getLayoutParams();
-            paramsV.guidePercent = getPosV(1);
-            glVPlayer02.setLayoutParams(paramsV);
-        }
-        if (turn == 2) {
-            ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer03.getLayoutParams();
-            paramsH.guidePercent = getPosH(2);
-            glHPlayer03.setLayoutParams(paramsH);
-
-            ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer03.getLayoutParams();
-            paramsV.guidePercent = getPosV(2) + 0.06f;
-            glVPlayer03.setLayoutParams(paramsV);
-        }
-        if (turn == 3) {
-            ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer04.getLayoutParams();
-            paramsH.guidePercent = getPosH(3) + 0.03f;
-            glHPlayer04.setLayoutParams(paramsH);
-
-            ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer04.getLayoutParams();
-            paramsV.guidePercent = getPosV(3) + 0.06f;
-            glVPlayer04.setLayoutParams(paramsV);
-        }
-    }
-
     //roll
     public void roll() {
         dice1 = random.nextInt(6) + 1;
@@ -281,8 +241,42 @@ public class PlayActivity extends AppCompatActivity {
             Player.players[turn].money+=1000;
         }
 
-        drawPlayer();
+        if (turn == 0) {
+            ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer01.getLayoutParams();
+            paramsH.guidePercent = getPosH(0);
+            glHPlayer01.setLayoutParams(paramsH);
 
+            ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer01.getLayoutParams();
+            paramsV.guidePercent = getPosV(0);
+            glVPlayer01.setLayoutParams(paramsV);
+        }
+        if (turn == 1) {
+            ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer02.getLayoutParams();
+            paramsH.guidePercent = getPosH(1) + 0.03f;
+            glHPlayer02.setLayoutParams(paramsH);
+
+            ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer02.getLayoutParams();
+            paramsV.guidePercent = getPosV(1);
+            glVPlayer02.setLayoutParams(paramsV);
+        }
+        if (turn == 2) {
+            ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer03.getLayoutParams();
+            paramsH.guidePercent = getPosH(2);
+            glHPlayer03.setLayoutParams(paramsH);
+
+            ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer03.getLayoutParams();
+            paramsV.guidePercent = getPosV(2) + 0.06f;
+            glVPlayer03.setLayoutParams(paramsV);
+        }
+        if (turn == 3) {
+            ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer04.getLayoutParams();
+            paramsH.guidePercent = getPosH(3) + 0.03f;
+            glHPlayer04.setLayoutParams(paramsH);
+
+            ConstraintLayout.LayoutParams paramsV = (ConstraintLayout.LayoutParams) glVPlayer04.getLayoutParams();
+            paramsV.guidePercent = getPosV(3) + 0.06f;
+            glVPlayer04.setLayoutParams(paramsV);
+        }
     }
 
     //setTurn
@@ -384,8 +378,6 @@ public class PlayActivity extends AppCompatActivity {
             Player.players[turn].isJail = false;
             drawPlayer();
         }
-
-
     }
 
     public void setMoney() {
@@ -455,17 +447,12 @@ public class PlayActivity extends AppCompatActivity {
             builder.setTitle("Add!!");
 
             int rdMoney = random.nextInt(24)*10;
-            String message = "You add "+rdMoney+"$";
+            String message = "You add "+rdMoney;
             Player.players[turn].money+=rdMoney;
             builder.setMessage(message);
 
             setMoney();
             setColor();
-            builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                }
-            });
 
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
@@ -475,18 +462,13 @@ public class PlayActivity extends AppCompatActivity {
 
             int rdMoney = random.nextInt(24)*10;
             int rdPlayer = random.nextInt(4);
-            String message = "You lose "+rdMoney+"$ for"+Player.players[rdPlayer];
+            String message = "You lose "+rdMoney+" for"+Player.players[rdPlayer];
             Player.players[turn].money-=rdMoney;
             Player.players[rdPlayer].money+= rdMoney;
             builder.setMessage(message);
 
             setMoney();
             setColor();
-            builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                }
-            });
 
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
@@ -503,11 +485,6 @@ public class PlayActivity extends AppCompatActivity {
         Player.players[turn].isJail=true;
         setMoney();
         setColor();
-        builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-            }
-        });
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
@@ -523,11 +500,6 @@ public class PlayActivity extends AppCompatActivity {
             Player.players[turn].posPlayer+=dice;
             setMoney();
             setColor();
-        builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-            }
-        });
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
@@ -598,11 +570,11 @@ public class PlayActivity extends AppCompatActivity {
         int lose = (Block.blocks[Player.players[turn].posPlayer].price
                 +Block.blocks[Player.players[turn].posPlayer].price * Block.blocks[Player.players[turn].posPlayer].lvHouse )/5;
 
-            String message = "You lose "+lose+"$ for "+Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].name;
+            String message = "You lose "+lose+" for "+Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].name;
             Player.players[turn].money-=lose;
             Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].money+=lose;
             setMoney();
-            setColor();
+
             builder.setMessage(message);
 
 
@@ -738,6 +710,31 @@ public class PlayActivity extends AppCompatActivity {
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+
+    private void checkAndSellHouse(int playerTurn) {
+        int houseAvail = 0;
+
+        for (int i = 0; i < 24; i++) {
+            if (Block.blocks[i].playerOccupy == playerTurn) {
+                houseAvail++;
+            }
+        }
+
+        while (houseAvail > 0 && Player.players[playerTurn].money <= 0) {
+            for (int i = 0; i < 24; i++) {
+                if (Block.blocks[i].playerOccupy == playerTurn) {
+                    Player.players[playerTurn].money += (Block.blocks[i].price * (Block.blocks[i].lvHouse + 1) / 2);
+                    Block.blocks[i].playerOccupy = 0;
+                    houseAvail--;
+                    //todo add notification sell for how much here
+                }
+            }
+        }
+        if (houseAvail == 0 && Player.players[playerTurn].money <= 0) {
+            //todo you lose
+        }
     }
 
 }
