@@ -237,7 +237,7 @@ public class PlayActivity extends AppCompatActivity {
         Player.players[turn].posPlayer += dice2;
         if (Player.players[turn].posPlayer >= 24) {
             Player.players[turn].posPlayer -= 24;
-            Player.players[turn].money+=1000;
+            Player.players[turn].money += 1000;
         }
 
         if (turn == 0) {
@@ -313,26 +313,24 @@ public class PlayActivity extends AppCompatActivity {
 //                }
 //            }
 //        }
-        Log.d(TAG, "setBlock: "+Player.players[turn].posPlayer);
-        if (Player.players[turn].posPlayer!=0&&Player.players[turn].posPlayer!=3&&Player.players[turn].posPlayer!=6
-                &&Player.players[turn].posPlayer!=9&&Player.players[turn].posPlayer!=12&&Player.players[turn].posPlayer!=15
-                &&Player.players[turn].posPlayer!=18&&Player.players[turn].posPlayer!=21){
-            if (Block.blocks[Player.players[turn].posPlayer].playerOccupy==0
-                    &&Player.players[turn].money>=Block.blocks[Player.players[turn].posPlayer].price){
+        Log.d(TAG, "setBlock: " + Player.players[turn].posPlayer);
+        if (!(Block.blocks[Player.players[turn].posPlayer] instanceof SpecialBlock)) {
+            if (Block.blocks[Player.players[turn].posPlayer].playerOccupy == 0
+                    && Player.players[turn].money >= Block.blocks[Player.players[turn].posPlayer].price) {
                 showDialogBuy();
-            }else if (Block.blocks[Player.players[turn].posPlayer].playerOccupy==turn+1){
+            } else if (Block.blocks[Player.players[turn].posPlayer].playerOccupy == turn + 1) {
                 showDialogBuild();
-            }else {
+            } else {
                 showDialogLoseMoney();
             }
         }
     }
 
     public void setMoney() {
-        tvMoney01.setText("$"+Integer.toString(Player.players[0].money));
-        tvMoney02.setText("$"+Integer.toString(Player.players[1].money));
-        tvMoney03.setText("$"+Integer.toString(Player.players[2].money));
-        tvMoney04.setText("$"+Integer.toString(Player.players[3].money));
+        tvMoney01.setText("$" + Integer.toString(Player.players[0].money));
+        tvMoney02.setText("$" + Integer.toString(Player.players[1].money));
+        tvMoney03.setText("$" + Integer.toString(Player.players[2].money));
+        tvMoney04.setText("$" + Integer.toString(Player.players[3].money));
         Log.d(TAG, "???");
 //        for (int i = 0 ; i < 24 ; i++){
 //            if (Block.blocks[i].playerOccupy == 1){
@@ -361,14 +359,14 @@ public class PlayActivity extends AppCompatActivity {
         builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Log.d(TAG, "wtf? turn: "+turn);
+                Log.d(TAG, "wtf? turn: " + turn);
 
-                    Log.d(TAG, "???: "+turn);
-                    Player.players[turn].money -= Block.blocks[Player.players[turn].posPlayer].price;
-                    Block.blocks[Player.players[turn].posPlayer].playerOccupy = turn + 1;
+                Log.d(TAG, "???: " + turn);
+                Player.players[turn].money -= Block.blocks[Player.players[turn].posPlayer].price;
+                Block.blocks[Player.players[turn].posPlayer].playerOccupy = turn + 1;
 
-                    setColor();
-                    Log.d(TAG, "setColoronClick: "+(turn+1));
+                setColor();
+                Log.d(TAG, "setColoronClick: " + (turn + 1));
             }
         });
         builder.setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
@@ -379,12 +377,13 @@ public class PlayActivity extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
-    public void showDialogBuild(){
+
+    public void showDialogBuild() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Build house??");
-        if (Player.players[turn].posPlayer!=0||Player.players[turn].posPlayer!=3||Player.players[turn].posPlayer!=6
-                ||Player.players[turn].posPlayer!=9||Player.players[turn].posPlayer!=12||Player.players[turn].posPlayer!=15
-                ||Player.players[turn].posPlayer!=18||Player.players[turn].posPlayer!=21) {
+        if (Player.players[turn].posPlayer != 0 || Player.players[turn].posPlayer != 3 || Player.players[turn].posPlayer != 6
+                || Player.players[turn].posPlayer != 9 || Player.players[turn].posPlayer != 12 || Player.players[turn].posPlayer != 15
+                || Player.players[turn].posPlayer != 18 || Player.players[turn].posPlayer != 21) {
             String message = " Do you want to build " + Block.blocks[Player.players[turn].posPlayer].name + "? ";
             builder.setMessage(message);
         }
@@ -392,12 +391,12 @@ public class PlayActivity extends AppCompatActivity {
         builder.setPositiveButton("Build", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Log.d(TAG, "wtf? turn: "+turn);
-                    Log.d(TAG, "???: "+turn);
-                    Player.players[turn].money -= Block.blocks[Player.players[turn].posPlayer].price/2;
-                    Block.blocks[Player.players[turn].posPlayer].lvHouse+=1;
-                    setColor();
-                    Log.d(TAG, "onClick: "+turn);
+                Log.d(TAG, "wtf? turn: " + turn);
+                Log.d(TAG, "???: " + turn);
+                Player.players[turn].money -= Block.blocks[Player.players[turn].posPlayer].price / 2;
+                Block.blocks[Player.players[turn].posPlayer].lvHouse += 1;
+                setColor();
+                Log.d(TAG, "onClick: " + turn);
             }
         });
         builder.setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
@@ -408,17 +407,18 @@ public class PlayActivity extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
-    public void showDialogLoseMoney(){
+
+    public void showDialogLoseMoney() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Lose money??");
         int lose = (Block.blocks[Player.players[turn].posPlayer].price
-                +Block.blocks[Player.players[turn].posPlayer].price * Block.blocks[Player.players[turn].posPlayer].lvHouse )/5;
+                + Block.blocks[Player.players[turn].posPlayer].price * Block.blocks[Player.players[turn].posPlayer].lvHouse) / 5;
 
-            String message = "You lose "+lose+" for "+Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].name;
-            Player.players[turn].money-=lose;
-            Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].money+=lose;
+        String message = "You lose " + lose + " for " + Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].name;
+        Player.players[turn].money -= lose;
+        Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].money += lose;
 
-            builder.setMessage(message);
+        builder.setMessage(message);
 
 
         AlertDialog alertDialog = builder.create();
@@ -442,24 +442,25 @@ public class PlayActivity extends AppCompatActivity {
     }
 
     //set color
-    public void setColor(){
-            if (Block.blocks[Player.players[turn].posPlayer].playerOccupy == 1){
-                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player01);
-                Log.d(TAG, "setColor: 1");
-            }
-            if (Block.blocks[Player.players[turn].posPlayer].playerOccupy == 2){
-                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player02);
-                Log.d(TAG, "setColor: 2");
-            }
-            if (Block.blocks[Player.players[turn].posPlayer].playerOccupy == 3){
-                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player03);
-                Log.d(TAG, "setColor: 3");
-            }
-            if (Block.blocks[Player.players[turn].posPlayer].playerOccupy == 4){
-                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player04);
-                Log.d(TAG, "setColor: 4");
-            }
+    public void setColor() {
+        if (Block.blocks[Player.players[turn].posPlayer].playerOccupy == 1) {
+            tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player01);
+            Log.d(TAG, "setColor: 1");
+        }
+        if (Block.blocks[Player.players[turn].posPlayer].playerOccupy == 2) {
+            tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player02);
+            Log.d(TAG, "setColor: 2");
+        }
+        if (Block.blocks[Player.players[turn].posPlayer].playerOccupy == 3) {
+            tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player03);
+            Log.d(TAG, "setColor: 3");
+        }
+        if (Block.blocks[Player.players[turn].posPlayer].playerOccupy == 4) {
+            tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player04);
+            Log.d(TAG, "setColor: 4");
+        }
     }
+
     //check alive
     void checkAlive() {
         int countDeath = 0;
@@ -495,10 +496,10 @@ public class PlayActivity extends AppCompatActivity {
         playerName2.setText(Player.players[1].name);
         playerName3.setText(Player.players[2].name);
         playerName4.setText(Player.players[3].name);
-        tvMoney01.setText("$"+Integer.toString(Player.players[0].money));
-        tvMoney02.setText("$"+Integer.toString(Player.players[1].money));
-        tvMoney03.setText("$"+Integer.toString(Player.players[2].money));
-        tvMoney04.setText("$"+Integer.toString(Player.players[3].money));
+        tvMoney01.setText("$" + Integer.toString(Player.players[0].money));
+        tvMoney02.setText("$" + Integer.toString(Player.players[1].money));
+        tvMoney03.setText("$" + Integer.toString(Player.players[2].money));
+        tvMoney04.setText("$" + Integer.toString(Player.players[3].money));
 
     }
 //    public void choosePlayer() {
@@ -553,6 +554,33 @@ public class PlayActivity extends AppCompatActivity {
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    private void checkAndSellHouse(int playerTurn) {
+        int houseAvail = 0;
+        if (Player.players[playerTurn].money <= 0) {
+            for (int i = 0; i < 24; i++) {
+                if (Block.blocks[i].playerOccupy == playerTurn) {
+                    houseAvail++;
+                }
+            }
+        }
+
+        while (houseAvail > 0 && Player.players[playerTurn].money <= 0) {
+            //todo add notification
+//            Player.players[playerTurn].money +=
+            for (int i = 0; i < 24; i++) {
+                if (Block.blocks[i].playerOccupy == playerTurn) {
+                    Player.players[playerTurn].money += (Block.blocks[i].price * (Block.blocks[i].lvHouse + 1)/ 2);
+                    Block.blocks[i].playerOccupy =0;
+                    houseAvail--;
+                    //todo add notification sell for how much here
+                }
+            }
+        }
+        if (houseAvail == 0 && Player.players[playerTurn].money <=0) {
+            //todo you lose
+        }
     }
 
 }
