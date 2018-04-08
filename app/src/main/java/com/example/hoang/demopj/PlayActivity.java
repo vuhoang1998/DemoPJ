@@ -482,6 +482,7 @@ public class PlayActivity extends AppCompatActivity {
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
         }
+        
     }
     public void showDialogGoToJail(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -580,7 +581,7 @@ public class PlayActivity extends AppCompatActivity {
         int lose = (Block.blocks[Player.players[turn].posPlayer].price
                 +Block.blocks[Player.players[turn].posPlayer].price * Block.blocks[Player.players[turn].posPlayer].lvHouse *2)/5;
 
-            String message = "You lose "+lose+" for "+(String)Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy-1].name;
+            String message = "You lose "+lose+"$ for "+(String)Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy-1].name;
             Player.players[turn].money-=lose;
             Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy-1].money+=lose;
             setMoney();
