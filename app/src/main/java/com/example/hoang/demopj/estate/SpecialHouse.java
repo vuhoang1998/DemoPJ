@@ -4,8 +4,13 @@ import com.example.hoang.demopj.Player;
 
 public class SpecialHouse extends Block implements SpecialBlock {
 
-    public SpecialHouse(int pos) {
-        this.position = pos;
+    public SpecialHouse(String name,int mapPos, int price, int playerOccupy, int lvHouse, int houseId) {
+        this.position = mapPos;
+        this.lvHouse = lvHouse;
+        this.price = price;
+        this.playerOccupy = playerOccupy;
+        this.houseId = houseId;
+        this.name = name;
     }
 
     @Override

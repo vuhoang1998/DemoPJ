@@ -21,6 +21,11 @@ public class Player {
         this.playerID = playerID;
         this.name = name;
     }
+    public static Player []players = new Player[]{
+            new Player("Player01",3000, 0, false, true, R.id.iv_pl_1),
+            new Player("Player02",3000, 0, false, true, R.id.iv_pl_2),
+            new Player("Player03",3000, 0, false, true, R.id.iv_pl_3),
+            new Player("Player04",3000, 0, false, true, R.id.iv_pl_4)
 
-    public static Player[] players;
+    };
 }
