@@ -27,7 +27,7 @@ public class PlayActivity extends AppCompatActivity {
     String TAG = "lalaland";
     Random random = new Random();
     boolean endGame = false;
-    int turn = 0;
+    int turn = -1;
     int dice1 = 0;
     int dice2 = 0;
     int dice = 0;
@@ -358,7 +358,11 @@ public class PlayActivity extends AppCompatActivity {
         builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (!(Block.blocks[Player.players[turn].posPlayer] instanceof SpecialBlock)) {
+                Log.d(TAG, "wtf? turn: "+turn);
+                if (Player.players[turn].posPlayer!=0||Player.players[turn].posPlayer!=3||Player.players[turn].posPlayer!=6
+                        ||Player.players[turn].posPlayer!=9||Player.players[turn].posPlayer!=12||Player.players[turn].posPlayer!=15
+                        ||Player.players[turn].posPlayer!=18||Player.players[turn].posPlayer!=21) {
+                    Log.d(TAG, "???: "+turn);
                     Player.players[turn].money -= Block.blocks[Player.players[turn].posPlayer].price;
                     Block.blocks[Player.players[turn].posPlayer].playerOccupy = turn + 1;
 
@@ -377,17 +381,18 @@ public class PlayActivity extends AppCompatActivity {
 
     @OnClick(R.id.bt_roll)
     public void onViewClicked() {
-        checkAlive();
+        turn += 1;
         if (turn > 3) {
             Log.d(TAG, "wtf?");
             turn = 0;
         }
+        checkAlive();
         roll();
         setTurn();
         setBlock();
         setMoney();
         setColor();
-        turn += 1;
+
     }
 
     //set color
