@@ -202,45 +202,8 @@ public class PlayActivity extends AppCompatActivity {
         ivArrowPl4.setVisibility(View.GONE);
 
     }
-
-    //roll
-    public void roll() {
-        dice1 = random.nextInt(6) + 1;
-        dice2 = random.nextInt(6) + 1;
-        if (dice1 == 1) {
-            ivDice1st.setImageResource(R.drawable.diceone);
-        } else if (dice1 == 2) {
-            ivDice1st.setImageResource(R.drawable.dicetwo);
-        } else if (dice1 == 3) {
-            ivDice1st.setImageResource(R.drawable.dicethree);
-        } else if (dice1 == 4) {
-            ivDice1st.setImageResource(R.drawable.dicefour);
-        } else if (dice1 == 5) {
-            ivDice1st.setImageResource(R.drawable.dicefive);
-        } else if (dice1 == 6) {
-            ivDice1st.setImageResource(R.drawable.dicesix);
-        }
-        if (dice2 == 1) {
-            ivDice2nd.setImageResource(R.drawable.diceone);
-        } else if (dice2 == 2) {
-            ivDice2nd.setImageResource(R.drawable.dicetwo);
-        } else if (dice2 == 3) {
-            ivDice2nd.setImageResource(R.drawable.dicethree);
-        } else if (dice2 == 4) {
-            ivDice2nd.setImageResource(R.drawable.dicefour);
-        } else if (dice2 == 5) {
-            ivDice2nd.setImageResource(R.drawable.dicefive);
-        } else if (dice2 == 6) {
-            ivDice2nd.setImageResource(R.drawable.dicesix);
-        }
-
-        Player.players[turn].posPlayer += dice1;
-        Player.players[turn].posPlayer += dice2;
-        if (Player.players[turn].posPlayer >= 24) {
-            Player.players[turn].posPlayer -= 24;
-            Player.players[turn].money+=1000;
-        }
-
+    //drawPlayer
+    public void drawPlayer(){
         if (turn == 0) {
             ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer01.getLayoutParams();
             paramsH.guidePercent = getPosH(0);
@@ -279,6 +242,50 @@ public class PlayActivity extends AppCompatActivity {
         }
     }
 
+    //roll
+    public void roll() {
+        dice1 = random.nextInt(6) + 1;
+        dice2 = random.nextInt(6) + 1;
+        if (dice1 == 1) {
+            ivDice1st.setImageResource(R.drawable.diceone);
+        } else if (dice1 == 2) {
+            ivDice1st.setImageResource(R.drawable.dicetwo);
+        } else if (dice1 == 3) {
+            ivDice1st.setImageResource(R.drawable.dicethree);
+        } else if (dice1 == 4) {
+            ivDice1st.setImageResource(R.drawable.dicefour);
+        } else if (dice1 == 5) {
+            ivDice1st.setImageResource(R.drawable.dicefive);
+        } else if (dice1 == 6) {
+            ivDice1st.setImageResource(R.drawable.dicesix);
+        }
+        if (dice2 == 1) {
+            ivDice2nd.setImageResource(R.drawable.diceone);
+        } else if (dice2 == 2) {
+            ivDice2nd.setImageResource(R.drawable.dicetwo);
+        } else if (dice2 == 3) {
+            ivDice2nd.setImageResource(R.drawable.dicethree);
+        } else if (dice2 == 4) {
+            ivDice2nd.setImageResource(R.drawable.dicefour);
+        } else if (dice2 == 5) {
+            ivDice2nd.setImageResource(R.drawable.dicefive);
+        } else if (dice2 == 6) {
+            ivDice2nd.setImageResource(R.drawable.dicesix);
+        }
+
+        Player.players[turn].posPlayer += dice1;
+        Player.players[turn].posPlayer += dice2;
+        checkring();
+
+    }
+
+    //check ring
+    public void checkring(){
+        if (Player.players[turn].posPlayer >= 24) {
+            Player.players[turn].posPlayer -= 24;
+            Player.players[turn].money+=1000;
+        }
+    }
     //setTurn
     public void setTurn() {
 
@@ -333,7 +340,7 @@ public class PlayActivity extends AppCompatActivity {
                         showDialogGoToJail();
                         drawPlayer();
                     }
-                },1000);
+                },100);
             }
             if (Player.players[turn].posPlayer==12){
                 Handler handler1=  new Handler();
@@ -343,7 +350,7 @@ public class PlayActivity extends AppCompatActivity {
                         showDialogSpecial();
                         drawPlayer();
                     }
-                },1000);
+                },100);
 
             }
             if (Player.players[turn].posPlayer==3||Player.players[turn].posPlayer==9
@@ -355,7 +362,7 @@ public class PlayActivity extends AppCompatActivity {
                         showDialogPlusPos();
                         drawPlayer();
                     }
-                },1000);
+                },100);
 
             }
             if (Player.players[turn].posPlayer!=0&&Player.players[turn].posPlayer!=3&&Player.players[turn].posPlayer!=6
@@ -372,12 +379,14 @@ public class PlayActivity extends AppCompatActivity {
                     showDialogLoseMoney();
                     drawPlayer();
                 }
-                sleep(1000);
+                sleep(100);
             }
+            drawPlayer();
         } else {
             Player.players[turn].isJail = false;
             drawPlayer();
         }
+        drawPlayer();
     }
 
     public void setMoney() {
@@ -462,7 +471,7 @@ public class PlayActivity extends AppCompatActivity {
 
             int rdMoney = random.nextInt(24)*10;
             int rdPlayer = random.nextInt(4);
-            String message = "You lose "+rdMoney+" for"+Player.players[rdPlayer];
+            String message = "You lose "+rdMoney+" for"+(String)Player.players[rdPlayer].name;
             Player.players[turn].money-=rdMoney;
             Player.players[rdPlayer].money+= rdMoney;
             builder.setMessage(message);
@@ -498,6 +507,7 @@ public class PlayActivity extends AppCompatActivity {
             builder.setMessage(message);
 
             Player.players[turn].posPlayer+=dice;
+            checkring();
             setMoney();
             setColor();
 
@@ -568,11 +578,11 @@ public class PlayActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Lose money??");
         int lose = (Block.blocks[Player.players[turn].posPlayer].price
-                +Block.blocks[Player.players[turn].posPlayer].price * Block.blocks[Player.players[turn].posPlayer].lvHouse )/5;
+                +Block.blocks[Player.players[turn].posPlayer].price * Block.blocks[Player.players[turn].posPlayer].lvHouse *2)/5;
 
-            String message = "You lose "+lose+" for "+Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].name;
+            String message = "You lose "+lose+" for "+(String)Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy-1].name;
             Player.players[turn].money-=lose;
-            Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].money+=lose;
+            Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy-1].money+=lose;
             setMoney();
 
             builder.setMessage(message);
@@ -580,6 +590,21 @@ public class PlayActivity extends AppCompatActivity {
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+    public void showDialogSellBuilding(int money){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Shell house!!");
+
+        String message = "You lose house and add "+ money+"$";
+        setMoney();
+        setColor();
+
+        builder.setMessage(message);
+
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
     }
 
     @OnClick(R.id.bt_roll)
@@ -589,18 +614,26 @@ public class PlayActivity extends AppCompatActivity {
             Log.d(TAG, "wtf?");
             turn = 0;
         }
-        checkAlive();
-        roll();
-        setTurn();
-        setBlock();
+        if(Player.players[turn].alive){
+            checkAlive();
+            roll();
+            setTurn();
+            setBlock();
+            setMoney();
+        }
+        setColor();
         setMoney();
-        //setColor();
-
     }
 
     //set color
     public void setColor(){
+        if (Block.blocks[Player.players[turn].posPlayer].lvHouse>0){
+            int x = Block.blocks[Player.players[turn].posPlayer].lvHouse;
+            tvColor[Player.players[turn].posPlayer].setText(Integer.toString(x));
+            Log.d(TAG, "setText: "+x);
+        }
             if (Block.blocks[Player.players[turn].posPlayer].playerOccupy == 1){
+
                 tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player01);
                 Log.d(TAG, "setColor: 1");
             }
@@ -717,7 +750,7 @@ public class PlayActivity extends AppCompatActivity {
         int houseAvail = 0;
 
         for (int i = 0; i < 24; i++) {
-            if (Block.blocks[i].playerOccupy == playerTurn) {
+            if (Block.blocks[i].playerOccupy == 1+playerTurn) {
                 houseAvail++;
             }
         }
@@ -725,15 +758,16 @@ public class PlayActivity extends AppCompatActivity {
         while (houseAvail > 0 && Player.players[playerTurn].money <= 0) {
             for (int i = 0; i < 24; i++) {
                 if (Block.blocks[i].playerOccupy == playerTurn) {
-                    Player.players[playerTurn].money += (Block.blocks[i].price * (Block.blocks[i].lvHouse + 1) / 2);
+                    Player.players[playerTurn].money += ((Block.blocks[i].price * (Block.blocks[i].lvHouse + 1)) / 2);
                     Block.blocks[i].playerOccupy = 0;
+                    setColor();
                     houseAvail--;
-                    //todo add notification sell for how much here
+                    showDialogSellBuilding(((Block.blocks[i].price * (Block.blocks[i].lvHouse + 1)) / 2));
                 }
             }
         }
         if (houseAvail == 0 && Player.players[playerTurn].money <= 0) {
-            //todo you lose
+            Player.players[playerTurn].alive=false;
         }
     }
 

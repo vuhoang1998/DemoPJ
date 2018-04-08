@@ -301,8 +301,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_95"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_33"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/tv_house_03"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mono" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_mono"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/tv_house_02"
@@ -530,6 +532,9 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_19"
         app:layout_constraintStart_toStartOf="@+id/gl_h_12"
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"
         app:layout_constraintTop_toTopOf="@+id/gl_v_17" />
 
     <TextView
@@ -540,6 +545,9 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_26"
         app:layout_constraintStart_toStartOf="@+id/gl_h_19"
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"
         app:layout_constraintTop_toBottomOf="@+id/tv_house_10" />
 
     <TextView
@@ -550,12 +558,18 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_40"
         app:layout_constraintStart_toStartOf="@+id/gl_h_33"
-        app:layout_constraintTop_toBottomOf="@+id/tv_house_11" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_house_11"
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"/>
 
     <TextView
         android:id="@+id/tv_color_17"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"
         android:background="@drawable/border_black"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_20"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_47"
@@ -566,6 +580,9 @@
         android:id="@+id/tv_color_19"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"
         android:background="@drawable/border_black"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_32"
         app:layout_constraintEnd_toStartOf="@+id/tv_house_13"
@@ -581,16 +598,22 @@
         app:layout_constraintEnd_toStartOf="@+id/gl_h_49"
         app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="@+id/gl_h_47"
-        app:layout_constraintTop_toTopOf="@+id/gl_v_32" />
+        app:layout_constraintTop_toTopOf="@+id/gl_v_32"
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"/>
 
     <TextView
         android:id="@+id/tv_color_22"
-        android:layout_width="0dp"
+        android:layout_width="10dp"
         android:layout_height="0dp"
         android:background="@drawable/border_black"
         app:layout_constraintBottom_toTopOf="@+id/gl_v_68"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_49"
         app:layout_constraintStart_toStartOf="@+id/gl_h_47"
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"
         app:layout_constraintTop_toTopOf="@+id/gl_v_56" />
 
     <TextView
@@ -605,7 +628,9 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_80"
         app:layout_constraintEnd_toStartOf="@+id/tv_house_16"
         app:layout_constraintStart_toStartOf="@+id/gl_h_47"
-
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"
         app:layout_constraintTop_toTopOf="@+id/gl_v_68" />
 
 
@@ -617,6 +642,9 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_68"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_12"
         app:layout_constraintStart_toStartOf="@+id/gl_h_10"
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"
         app:layout_constraintTop_toTopOf="@+id/gl_v_56" />
 
     <TextView
@@ -627,6 +655,9 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_80"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_12"
         app:layout_constraintStart_toStartOf="@+id/gl_h_10"
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"
         app:layout_constraintTop_toTopOf="@+id/gl_v_68" />
 
     <TextView
@@ -637,6 +668,9 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_44"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_12"
         app:layout_constraintStart_toStartOf="@+id/gl_h_10"
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"
         app:layout_constraintTop_toTopOf="@+id/gl_v_32" />
 
     <TextView
@@ -647,6 +681,9 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_32"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_12"
         app:layout_constraintStart_toStartOf="@+id/gl_h_10"
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"
         app:layout_constraintTop_toTopOf="@+id/gl_v_20" />
 
     <TextView
@@ -674,6 +711,9 @@
         app:layout_constraintBottom_toTopOf="@+id/tv_house_04"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_19"
         app:layout_constraintStart_toStartOf="@+id/gl_h_12"
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"
         app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
 
     <TextView
@@ -684,6 +724,9 @@
         app:layout_constraintBottom_toTopOf="@+id/tv_house_03"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_26"
         app:layout_constraintStart_toEndOf="@+id/tv_color_05"
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"
         app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
 
 
@@ -695,6 +738,9 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_v_83"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_47"
         app:layout_constraintStart_toEndOf="@+id/tv_color_02"
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"
         app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
 
     <TextView
@@ -705,6 +751,9 @@
         app:layout_constraintBottom_toTopOf="@+id/tv_house_02"
         app:layout_constraintEnd_toStartOf="@+id/gl_h_40"
         app:layout_constraintStart_toStartOf="@+id/gl_h_33"
+        android:gravity="center"
+        android:textColor="#da83ff"
+        android:textSize="10sp"
         app:layout_constraintTop_toTopOf="@+id/gl_v_80" />
 
     <android.support.constraint.Guideline
