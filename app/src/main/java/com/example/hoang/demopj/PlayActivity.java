@@ -358,11 +358,12 @@ public class PlayActivity extends AppCompatActivity {
         builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                Log.d(TAG, "onClick: "+turn + " " + Player.players[turn].posPlayer);
                 if (!(Block.blocks[Player.players[turn].posPlayer] instanceof SpecialBlock)) {
                     Player.players[turn].money -= Block.blocks[Player.players[turn].posPlayer].price;
                     Block.blocks[Player.players[turn].posPlayer].playerOccupy = turn + 1;
 
-                    Log.d(TAG, "onClick: "+turn);
+
                 }
             }
         });
@@ -378,8 +379,8 @@ public class PlayActivity extends AppCompatActivity {
     @OnClick(R.id.bt_roll)
     public void onViewClicked() {
         checkAlive();
+        Log.d(TAG, "onViewClicked: " + turn);
         if (turn > 3) {
-            Log.d(TAG, "wtf?");
             turn = 0;
         }
         roll();
