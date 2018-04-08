@@ -366,6 +366,7 @@ public class PlayActivity extends AppCompatActivity {
                     Player.players[turn].money -= Block.blocks[Player.players[turn].posPlayer].price;
                     Block.blocks[Player.players[turn].posPlayer].playerOccupy = turn + 1;
 
+                    setColor();
                     Log.d(TAG, "onClick: "+turn);
                 }
             }
@@ -391,7 +392,7 @@ public class PlayActivity extends AppCompatActivity {
         setTurn();
         setBlock();
         setMoney();
-        setColor();
+        //setColor();
 
     }
 
