@@ -312,15 +312,16 @@ public class PlayActivity extends AppCompatActivity {
 //                }
 //            }
 //        }
-        for (Block block : Block.blocks) {
-            if (!(block instanceof SpecialBlock)) {
-                if (block.position == Player.players[turn].posPlayer) {
-                    if (block.playerOccupy == 0) {
-                        if (Player.players[turn].money > block.price) {
-                            showDialogBuy();
-                        }
-                    }
-                }
+        if (Player.players[turn].posPlayer!=0||Player.players[turn].posPlayer!=3||Player.players[turn].posPlayer!=6
+                ||Player.players[turn].posPlayer!=9||Player.players[turn].posPlayer!=12||Player.players[turn].posPlayer!=15
+                ||Player.players[turn].posPlayer!=18||Player.players[turn].posPlayer!=21){
+            if (Block.blocks[Player.players[turn].posPlayer].playerOccupy==0
+                    &&Player.players[turn].money>=Block.blocks[Player.players[turn].posPlayer].price){
+                showDialogBuy();
+            }else if (Block.blocks[Player.players[turn].posPlayer].playerOccupy==turn+1){
+                showDialogBuild();
+            }else {
+                showDialogLoseMoney();
             }
         }
     }
@@ -376,6 +377,51 @@ public class PlayActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
             }
         });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+    public void showDialogBuild(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Build house??");
+        if (Player.players[turn].posPlayer!=0||Player.players[turn].posPlayer!=3||Player.players[turn].posPlayer!=6
+                ||Player.players[turn].posPlayer!=9||Player.players[turn].posPlayer!=12||Player.players[turn].posPlayer!=15
+                ||Player.players[turn].posPlayer!=18||Player.players[turn].posPlayer!=21) {
+            String message = " Do you want to build " + Block.blocks[Player.players[turn].posPlayer].name + "? ";
+            builder.setMessage(message);
+        }
+
+        builder.setPositiveButton("Build", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Log.d(TAG, "wtf? turn: "+turn);
+                    Log.d(TAG, "???: "+turn);
+                    Player.players[turn].money -= Block.blocks[Player.players[turn].posPlayer].price/2;
+                    Block.blocks[Player.players[turn].posPlayer].lvHouse+=1;
+                    setColor();
+                    Log.d(TAG, "onClick: "+turn);
+            }
+        });
+        builder.setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+    public void showDialogLoseMoney(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Lose money??");
+        int lose = (Block.blocks[Player.players[turn].posPlayer].price
+                +Block.blocks[Player.players[turn].posPlayer].price * Block.blocks[Player.players[turn].posPlayer].lvHouse )/5;
+
+            String message = "You lose "+lose+" for "+Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].name;
+            Player.players[turn].money-=lose;
+            Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].money-=lose;
+
+            builder.setMessage(message);
+
+
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
