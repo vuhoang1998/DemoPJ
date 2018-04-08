@@ -2,6 +2,7 @@ package com.example.hoang.demopj;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.Guideline;
 import android.support.v7.app.AlertDialog;
@@ -202,44 +203,8 @@ public class PlayActivity extends AppCompatActivity {
 
     }
 
-    //roll
-    public void roll() {
-        dice1 = random.nextInt(6) + 1;
-        dice2 = random.nextInt(6) + 1;
-        if (dice1 == 1) {
-            ivDice1st.setImageResource(R.drawable.diceone);
-        } else if (dice1 == 2) {
-            ivDice1st.setImageResource(R.drawable.dicetwo);
-        } else if (dice1 == 3) {
-            ivDice1st.setImageResource(R.drawable.dicethree);
-        } else if (dice1 == 4) {
-            ivDice1st.setImageResource(R.drawable.dicefour);
-        } else if (dice1 == 5) {
-            ivDice1st.setImageResource(R.drawable.dicefive);
-        } else if (dice1 == 6) {
-            ivDice1st.setImageResource(R.drawable.dicesix);
-        }
-        if (dice2 == 1) {
-            ivDice2nd.setImageResource(R.drawable.diceone);
-        } else if (dice2 == 2) {
-            ivDice2nd.setImageResource(R.drawable.dicetwo);
-        } else if (dice2 == 3) {
-            ivDice2nd.setImageResource(R.drawable.dicethree);
-        } else if (dice2 == 4) {
-            ivDice2nd.setImageResource(R.drawable.dicefour);
-        } else if (dice2 == 5) {
-            ivDice2nd.setImageResource(R.drawable.dicefive);
-        } else if (dice2 == 6) {
-            ivDice2nd.setImageResource(R.drawable.dicesix);
-        }
-
-        Player.players[turn].posPlayer += dice1;
-        Player.players[turn].posPlayer += dice2;
-        if (Player.players[turn].posPlayer >= 24) {
-            Player.players[turn].posPlayer -= 24;
-            Player.players[turn].money+=1000;
-        }
-
+    //draw Player
+    public void drawPlayer(){
         if (turn == 0) {
             ConstraintLayout.LayoutParams paramsH = (ConstraintLayout.LayoutParams) glHPlayer01.getLayoutParams();
             paramsH.guidePercent = getPosH(0);
@@ -278,6 +243,48 @@ public class PlayActivity extends AppCompatActivity {
         }
     }
 
+    //roll
+    public void roll() {
+        dice1 = random.nextInt(6) + 1;
+        dice2 = random.nextInt(6) + 1;
+        if (dice1 == 1) {
+            ivDice1st.setImageResource(R.drawable.diceone);
+        } else if (dice1 == 2) {
+            ivDice1st.setImageResource(R.drawable.dicetwo);
+        } else if (dice1 == 3) {
+            ivDice1st.setImageResource(R.drawable.dicethree);
+        } else if (dice1 == 4) {
+            ivDice1st.setImageResource(R.drawable.dicefour);
+        } else if (dice1 == 5) {
+            ivDice1st.setImageResource(R.drawable.dicefive);
+        } else if (dice1 == 6) {
+            ivDice1st.setImageResource(R.drawable.dicesix);
+        }
+        if (dice2 == 1) {
+            ivDice2nd.setImageResource(R.drawable.diceone);
+        } else if (dice2 == 2) {
+            ivDice2nd.setImageResource(R.drawable.dicetwo);
+        } else if (dice2 == 3) {
+            ivDice2nd.setImageResource(R.drawable.dicethree);
+        } else if (dice2 == 4) {
+            ivDice2nd.setImageResource(R.drawable.dicefour);
+        } else if (dice2 == 5) {
+            ivDice2nd.setImageResource(R.drawable.dicefive);
+        } else if (dice2 == 6) {
+            ivDice2nd.setImageResource(R.drawable.dicesix);
+        }
+
+        Player.players[turn].posPlayer += dice1;
+        Player.players[turn].posPlayer += dice2;
+        if (Player.players[turn].posPlayer >= 24) {
+            Player.players[turn].posPlayer -= 24;
+            Player.players[turn].money+=1000;
+        }
+
+        drawPlayer();
+
+    }
+
     //setTurn
     public void setTurn() {
 
@@ -303,7 +310,16 @@ public class PlayActivity extends AppCompatActivity {
             ivArrowPl4.setVisibility(View.VISIBLE);
         }
     }
+    //sleep
+    public void sleep(int time){
+        Handler handler=  new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
 
+            }
+            },time);
+    }
     //setBlock
     public void setBlock() {
 //        if (!(block instanceof SpecialBlock)) {
@@ -316,14 +332,37 @@ public class PlayActivity extends AppCompatActivity {
         Log.d(TAG, "setBlock: "+Player.players[turn].posPlayer);
         if(Player.players[turn].isJail !=true){
             if (Player.players[turn].posPlayer==18){
-                showDialogGoToJail();
+                Handler handler=  new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        showDialogGoToJail();
+                        drawPlayer();
+                    }
+                },1000);
             }
             if (Player.players[turn].posPlayer==12){
-                showDialogSpecial();
+                Handler handler1=  new Handler();
+                handler1.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        showDialogSpecial();
+                        drawPlayer();
+                    }
+                },1000);
+
             }
             if (Player.players[turn].posPlayer==3||Player.players[turn].posPlayer==9
                     ||Player.players[turn].posPlayer==15||Player.players[turn].posPlayer==21){
-                showDialogPlusPos();
+                Handler handler1=  new Handler();
+                handler1.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        showDialogPlusPos();
+                        drawPlayer();
+                    }
+                },1000);
+
             }
             if (Player.players[turn].posPlayer!=0&&Player.players[turn].posPlayer!=3&&Player.players[turn].posPlayer!=6
                     &&Player.players[turn].posPlayer!=9&&Player.players[turn].posPlayer!=12&&Player.players[turn].posPlayer!=15
@@ -331,14 +370,19 @@ public class PlayActivity extends AppCompatActivity {
                 if (Block.blocks[Player.players[turn].posPlayer].playerOccupy==0
                         &&Player.players[turn].money>=Block.blocks[Player.players[turn].posPlayer].price){
                     showDialogBuy();
+                    drawPlayer();
                 }else if (Block.blocks[Player.players[turn].posPlayer].playerOccupy==turn+1){
                     showDialogBuild();
+                    drawPlayer();
                 }else {
                     showDialogLoseMoney();
+                    drawPlayer();
                 }
+                sleep(1000);
             }
         } else {
             Player.players[turn].isJail = false;
+            drawPlayer();
         }
 
 
@@ -379,6 +423,11 @@ public class PlayActivity extends AppCompatActivity {
 
             setMoney();
             setColor();
+            builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                }
+            });
 
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
@@ -387,12 +436,17 @@ public class PlayActivity extends AppCompatActivity {
             builder.setTitle("Lose!!");
 
             int rdMoney = random.nextInt(24)*10;
-            String message = "You lose "+rdMoney;
+            String message = "You lose "+rdMoney+"$";
             Player.players[turn].money-=rdMoney;
             builder.setMessage(message);
 
             setMoney();
             setColor();
+            builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                }
+            });
 
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
@@ -401,12 +455,17 @@ public class PlayActivity extends AppCompatActivity {
             builder.setTitle("Add!!");
 
             int rdMoney = random.nextInt(24)*10;
-            String message = "You add "+rdMoney;
+            String message = "You add "+rdMoney+"$";
             Player.players[turn].money+=rdMoney;
             builder.setMessage(message);
 
             setMoney();
             setColor();
+            builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                }
+            });
 
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
@@ -416,13 +475,18 @@ public class PlayActivity extends AppCompatActivity {
 
             int rdMoney = random.nextInt(24)*10;
             int rdPlayer = random.nextInt(4);
-            String message = "You lose "+rdMoney+" for"+Player.players[rdPlayer];
+            String message = "You lose "+rdMoney+"$ for"+Player.players[rdPlayer];
             Player.players[turn].money-=rdMoney;
             Player.players[rdPlayer].money+= rdMoney;
             builder.setMessage(message);
 
             setMoney();
             setColor();
+            builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                }
+            });
 
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
@@ -439,6 +503,11 @@ public class PlayActivity extends AppCompatActivity {
         Player.players[turn].isJail=true;
         setMoney();
         setColor();
+        builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
@@ -454,6 +523,11 @@ public class PlayActivity extends AppCompatActivity {
             Player.players[turn].posPlayer+=dice;
             setMoney();
             setColor();
+        builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
@@ -524,11 +598,11 @@ public class PlayActivity extends AppCompatActivity {
         int lose = (Block.blocks[Player.players[turn].posPlayer].price
                 +Block.blocks[Player.players[turn].posPlayer].price * Block.blocks[Player.players[turn].posPlayer].lvHouse )/5;
 
-            String message = "You lose "+lose+" for "+Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].name;
+            String message = "You lose "+lose+"$ for "+Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].name;
             Player.players[turn].money-=lose;
             Player.players[Block.blocks[Player.players[turn].posPlayer].playerOccupy].money+=lose;
             setMoney();
-
+            setColor();
             builder.setMessage(message);
 
 
