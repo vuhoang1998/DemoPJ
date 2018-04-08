@@ -237,6 +237,7 @@ public class PlayActivity extends AppCompatActivity {
         Player.players[turn].posPlayer += dice2;
         if (Player.players[turn].posPlayer >= 24) {
             Player.players[turn].posPlayer -= 24;
+            Player.players[turn].money+=1000;
         }
 
         if (turn == 0) {
@@ -312,9 +313,10 @@ public class PlayActivity extends AppCompatActivity {
 //                }
 //            }
 //        }
-        if (Player.players[turn].posPlayer!=0||Player.players[turn].posPlayer!=3||Player.players[turn].posPlayer!=6
-                ||Player.players[turn].posPlayer!=9||Player.players[turn].posPlayer!=12||Player.players[turn].posPlayer!=15
-                ||Player.players[turn].posPlayer!=18||Player.players[turn].posPlayer!=21){
+        Log.d(TAG, "setBlock: "+Player.players[turn].posPlayer);
+        if (Player.players[turn].posPlayer!=0&&Player.players[turn].posPlayer!=3&&Player.players[turn].posPlayer!=6
+                &&Player.players[turn].posPlayer!=9&&Player.players[turn].posPlayer!=12&&Player.players[turn].posPlayer!=15
+                &&Player.players[turn].posPlayer!=18&&Player.players[turn].posPlayer!=21){
             if (Block.blocks[Player.players[turn].posPlayer].playerOccupy==0
                     &&Player.players[turn].money>=Block.blocks[Player.players[turn].posPlayer].price){
                 showDialogBuy();
@@ -360,16 +362,13 @@ public class PlayActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Log.d(TAG, "wtf? turn: "+turn);
-                if (Player.players[turn].posPlayer!=0||Player.players[turn].posPlayer!=3||Player.players[turn].posPlayer!=6
-                        ||Player.players[turn].posPlayer!=9||Player.players[turn].posPlayer!=12||Player.players[turn].posPlayer!=15
-                        ||Player.players[turn].posPlayer!=18||Player.players[turn].posPlayer!=21) {
+
                     Log.d(TAG, "???: "+turn);
                     Player.players[turn].money -= Block.blocks[Player.players[turn].posPlayer].price;
                     Block.blocks[Player.players[turn].posPlayer].playerOccupy = turn + 1;
 
                     setColor();
-                    Log.d(TAG, "onClick: "+turn);
-                }
+                    Log.d(TAG, "setColoronClick: "+(turn+1));
             }
         });
         builder.setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
@@ -444,20 +443,22 @@ public class PlayActivity extends AppCompatActivity {
 
     //set color
     public void setColor(){
-        for (int k = 0 ; k <24 ; k ++){
-            if (Block.blocks[k].playerOccupy == 1){
+            if (Block.blocks[Player.players[turn].posPlayer].playerOccupy == 1){
                 tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player01);
+                Log.d(TAG, "setColor: 1");
             }
-            if (Block.blocks[k].playerOccupy == 2){
+            if (Block.blocks[Player.players[turn].posPlayer].playerOccupy == 2){
                 tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player02);
+                Log.d(TAG, "setColor: 2");
             }
-            if (Block.blocks[k].playerOccupy == 3){
+            if (Block.blocks[Player.players[turn].posPlayer].playerOccupy == 3){
                 tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player03);
+                Log.d(TAG, "setColor: 3");
             }
-            if (Block.blocks[k].playerOccupy == 4){
+            if (Block.blocks[Player.players[turn].posPlayer].playerOccupy == 4){
                 tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player04);
+                Log.d(TAG, "setColor: 4");
             }
-        }
     }
     //check alive
     void checkAlive() {
