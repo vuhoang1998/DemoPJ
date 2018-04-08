@@ -325,59 +325,50 @@ public class PlayActivity extends AppCompatActivity {
         }
     }
 
-    public void setColor() {
+    public void setMoney() {
         tvMoney01.setText("$"+Integer.toString(Player.players[0].money));
         tvMoney02.setText("$"+Integer.toString(Player.players[1].money));
         tvMoney03.setText("$"+Integer.toString(Player.players[2].money));
         tvMoney04.setText("$"+Integer.toString(Player.players[3].money));
         Log.d(TAG, "???");
-        for (int i = 0 ; i < 24 ; i++){
-            if (Block.blocks[i].playerOccupy == 1){
-                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player01);
-            }
-            if (Block.blocks[i].playerOccupy == 2){
-                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player02);
-            }
-            if (Block.blocks[i].playerOccupy == 3){
-                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player03);
-            }
-            if (Block.blocks[i].playerOccupy == 4){
-                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player04);
-            }
-        }
+//        for (int i = 0 ; i < 24 ; i++){
+//            if (Block.blocks[i].playerOccupy == 1){
+//                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player01);
+//            }
+//            if (Block.blocks[i].playerOccupy == 2){
+//                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player02);
+//            }
+//            if (Block.blocks[i].playerOccupy == 3){
+//                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player03);
+//            }
+//            if (Block.blocks[i].playerOccupy == 4){
+//                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player04);
+//            }
+//        }
     }
 
     public void showDialogBuy() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Buy house??");
-        for (Block block : Block.blocks) {
-            if (!(block instanceof SpecialBlock)) {
-                if (block.position == Player.players[turn].posPlayer) {
-                    String message = " Do you want to buy " + block.name + " ? ";
-                    builder.setMessage(message);
-                }
-            }
+        if (!(Block.blocks[Player.players[turn].posPlayer] instanceof SpecialBlock)) {
+            String message = " Do you want to buy " + Block.blocks[Player.players[turn].posPlayer].name + "? ";
+            builder.setMessage(message);
         }
 
         builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                for (Block block : Block.blocks) {
-                    if (!(block instanceof SpecialBlock)) {
-                        if (block.position == Player.players[turn].posPlayer) {
-                            Player.players[turn].money -= block.price;
-                            Block.blocks[block.position].playerOccupy = turn + 1;
-                            setColor();
-                            Log.d(TAG, "onClick: "+turn);
-                        }
-                    }
+                if (!(Block.blocks[Player.players[turn].posPlayer] instanceof SpecialBlock)) {
+                    Player.players[turn].money -= Block.blocks[Player.players[turn].posPlayer].price;
+                    Block.blocks[Player.players[turn].posPlayer].playerOccupy = turn + 1;
+
+                    Log.d(TAG, "onClick: "+turn);
                 }
             }
         });
         builder.setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
             }
         });
         AlertDialog alertDialog = builder.create();
@@ -394,10 +385,28 @@ public class PlayActivity extends AppCompatActivity {
         roll();
         setTurn();
         setBlock();
+        setMoney();
         setColor();
         turn += 1;
     }
 
+    //set color
+    public void setColor(){
+        for (int k = 0 ; k <24 ; k ++){
+            if (Block.blocks[k].playerOccupy == 1){
+                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player01);
+            }
+            if (Block.blocks[k].playerOccupy == 2){
+                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player02);
+            }
+            if (Block.blocks[k].playerOccupy == 3){
+                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player03);
+            }
+            if (Block.blocks[k].playerOccupy == 4){
+                tvColor[Player.players[turn].posPlayer].setBackgroundResource(R.color.player04);
+            }
+        }
+    }
     //check alive
     void checkAlive() {
         int countDeath = 0;
@@ -481,20 +490,14 @@ public class PlayActivity extends AppCompatActivity {
         builder.setTitle("GameConsole");
         String message = "Buy cost: " + block.price + "\nupgrade fee: " + block.price / 2;
         builder.setMessage(message);
-        builder.setPositiveButton("Buy", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(PlayActivity.this, "purchased", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PlayActivity.this, "loading...", Toast.LENGTH_SHORT).show();
                 dialogInterface.dismiss();
             }
         });
-        builder.setNegativeButton("Nein", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(PlayActivity.this, "Heil hilter", Toast.LENGTH_SHORT).show();
-                dialogInterface.dismiss();
-            }
-        });
+
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
