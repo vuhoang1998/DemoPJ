@@ -556,29 +556,27 @@ public class PlayActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+
     private void checkAndSellHouse(int playerTurn) {
         int houseAvail = 0;
-        if (Player.players[playerTurn].money <= 0) {
-            for (int i = 0; i < 24; i++) {
-                if (Block.blocks[i].playerOccupy == playerTurn) {
-                    houseAvail++;
-                }
+
+        for (int i = 0; i < 24; i++) {
+            if (Block.blocks[i].playerOccupy == playerTurn) {
+                houseAvail++;
             }
         }
 
         while (houseAvail > 0 && Player.players[playerTurn].money <= 0) {
-            //todo add notification
-//            Player.players[playerTurn].money +=
             for (int i = 0; i < 24; i++) {
                 if (Block.blocks[i].playerOccupy == playerTurn) {
-                    Player.players[playerTurn].money += (Block.blocks[i].price * (Block.blocks[i].lvHouse + 1)/ 2);
-                    Block.blocks[i].playerOccupy =0;
+                    Player.players[playerTurn].money += (Block.blocks[i].price * (Block.blocks[i].lvHouse + 1) / 2);
+                    Block.blocks[i].playerOccupy = 0;
                     houseAvail--;
                     //todo add notification sell for how much here
                 }
             }
         }
-        if (houseAvail == 0 && Player.players[playerTurn].money <=0) {
+        if (houseAvail == 0 && Player.players[playerTurn].money <= 0) {
             //todo you lose
         }
     }
